@@ -82,7 +82,6 @@ class Renderer(base.Renderer):
 
     @property
     def available(self):
-        """Show the portlet only if there are one or more elements."""
         return len(self._data())
 
     def results(self):
@@ -90,5 +89,10 @@ class Renderer(base.Renderer):
 
     @memoize
     def _data(self):
-        return self.context.listFolderContents(
+        item_list = []
+        folder_list = self.context.listFolderContents(
             contentFilter={"portal_type": self.data.content_selection})
+        for item in folder_list:
+            item_list.extend(item.contentValues())
+        item_list.sort()
+        return item_list
