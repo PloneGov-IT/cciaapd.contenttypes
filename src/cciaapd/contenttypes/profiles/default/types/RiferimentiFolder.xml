@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="RiferimentiFolder" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Riferimenti</property>
+ <property name="title" i18n:translate="">Riferimenti normativi</property>
  <property name="description" i18n:translate=""></property>
  <property name="icon_expr">string:${portal_url}/++resource++cciaapd.contenttypes/riferimenti_folder.ico</property>
  <property name="factory">RiferimentiFolder</property>

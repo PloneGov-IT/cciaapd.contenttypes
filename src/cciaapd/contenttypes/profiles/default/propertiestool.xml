@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_properties">
+  <property name="default_page_types" purge="False">
+   <element value="Scheda"/>
+  </property>
+ </object>
+</object>
