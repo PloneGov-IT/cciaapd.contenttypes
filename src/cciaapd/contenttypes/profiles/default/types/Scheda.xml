@@ -4,7 +4,7 @@
   <property name="title" i18n:translate="">Scheda</property>
   <property name="description"
     i18n:translate=""></property>
-  <property name="icon_expr"></property>
+  <property name="icon_expr">string:${portal_url}/++resource++cciaapd.contenttypes/scheda.png</property>
   <property name="factory">Scheda</property>
   <property name="add_view_expr">string:${folder_url}/++add++Scheda</property>
   <property name="link_target"></property>

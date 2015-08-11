@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-11 07:53+0000\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,25 +10,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Name: Italian\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: cciaapd.contenttypes\n"
-
-#: ../portlets/scheda_portlet.py:50
-msgid ""
-msgstr ""
+"Domain: DOMAIN\n"
 
 #: ../portlets/scheda_portlet.py:49
 msgid "Add Scheda Portlet"
-msgstr ""
+msgstr "Aggiungi Portlet Scheda"
 
 #: ../interfaces.py:24
 msgid "Body text"
-msgstr ""
+msgstr "Testo"
 
 #: ../portlets/scheda_portlet.py:58
 msgid "Edit Scheda Portlet"
-msgstr ""
+msgstr "Modifica Portlet Scheda"
 
 #: ../profiles/default/types/Scheda.xml
 msgid "Scheda"
@@ -45,5 +38,4 @@ msgstr ""
 #. Default: "Related office"
 #: ../behaviors/related_office.py:19
 msgid "label_related_office"
-msgstr ""
-
+msgstr "Ufficio correlato"
