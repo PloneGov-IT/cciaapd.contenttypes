@@ -17,4 +17,21 @@
       directory="static"
       />
 
+  <browser:menuItems
+      for="cciaapd.contenttypes.interfaces.IScheda"
+      menu="plone_displayviews">
+      <browser:menuItem
+        title="Scheda View"
+        action="scheda_view"
+      />
+  </browser:menuItems>
+
+  <browser:page
+        name="scheda_view"
+        template="templates/scheda.pt"
+        for="cciaapd.contenttypes.interfaces.IScheda"
+        layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
+        permission="zope2.View"
+        />
+
 </configure>

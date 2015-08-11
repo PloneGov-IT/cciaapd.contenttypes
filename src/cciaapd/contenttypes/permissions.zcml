@@ -1,0 +1,19 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="plone">
+
+  <configure zcml:condition="installed AccessControl.security">
+
+    <permission
+      id="cciaapd.contenttypes.addModuliFolder"
+      title="cciaapd.contenttypes: Add ModuliFolder"
+      />
+    <permission
+      id="cciaapd.contenttypes.addRiferimentiFolder"
+      title="cciaapd.contenttypes: Add RiferimentiFolder"
+      />
+
+  </configure>
+
+</configure>

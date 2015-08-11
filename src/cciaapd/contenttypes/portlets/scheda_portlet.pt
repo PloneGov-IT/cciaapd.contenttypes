@@ -1,0 +1,28 @@
+<dl class="portlet portletScheda"
+    i18n:domain="plone"
+    tal:define="results view/results">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <span class="tile" tal:content="view/data/portlet_title"/>
+        <span class="portletTopRight"></span>
+    </dt>
+
+
+    <dd class="portletItem"
+        tal:repeat="result results">
+        <a href=""
+           tal:attributes="href string:${result/absolute_url}/view;
+                           title result/Description">
+            <tal:title content="result/Title">
+                Title
+            </tal:title>
+        </a>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>

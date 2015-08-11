@@ -3,9 +3,9 @@
 
 from cciaapd.contenttypes import _
 from plone.app.textfield import RichText
+from plone.supermodel import model
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from plone.supermodel import model
 
 
 class ICciaapdContenttypesLayer(IDefaultBrowserLayer):
@@ -27,3 +27,13 @@ class ISchedaSchema(model.Schema):
         allowed_mime_types=('text/html', 'text/plain',),
         default=u""
     )
+
+
+class IModuliFolderSchema(model.Schema):
+
+    """ Schema for ModuliFolder """
+
+
+class IRiferimentiFolderSchema(model.Schema):
+
+    """ Schema for RiferimentiFolder """

@@ -1,0 +1,17 @@
+<configure
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="cciaapd.contenttypes">
+
+  <include package="plone.app.portlets"/>
+
+  <plone:portlet
+        name="cciaapd.contenttypes.SchedaPortlet"
+        interface=".scheda_portlet.ISchedaPortlet"
+        assignment=".scheda_portlet.Assignment"
+        renderer=".scheda_portlet.Renderer"
+        addview=".scheda_portlet.AddForm"
+        editview=".scheda_portlet.EditForm"
+        />
+
+</configure>
