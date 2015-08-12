@@ -36,7 +36,7 @@ class SchedeContentView(BrowserView):
         """Return true if the content is a Scheda"""
         return self.context.portal_type == "Scheda"
 
-    def find_nephews(self, obj=None):
+    def find_nephews(self, obj=None, original=True):
         '''
         Check inside objects all the filtered types and
         return their children.
@@ -50,17 +50,17 @@ class SchedeContentView(BrowserView):
         )
         results = []
         [results.extend(child.listFolderContents()) for child in children]
-
-        parent = self.context.aq_parent
-        view = self.get_view(parent, u'schede_content_view')
-
-        results.extend(view.get_results(original=False))
+        if original:
+            obj = self.get_next()
+            if obj is not None:
+                view = self.get_view(self.get_next(), u'schede_content_view')
+                results.extend(view.get_results(original=False))
 
         return sorted(set(results))
 
     def get_next(self):
         """Find next interesting object in the aq_chain"""
-        for obj in self.context.aq_chain:
+        for obj in self.context.aq_chain[2:]:
             view = self.get_view(obj, u'schede_content_view')
 
             if ISiteRoot.providedBy(obj):
@@ -81,16 +81,19 @@ class SchedeContentView(BrowserView):
         Case 3: as a fallback return an empty list
         """
 
+        # import pdb
+        # pdb.set_trace()
         if ISiteRoot.providedBy(self.context):
             return []
 
         if self.is_default_view():
-            return self.find_nephews(self.get_default_view_object())
+            return self.find_nephews(
+                self.get_default_view_object(),
+                original)
 
         if self.is_scheda():
-            return self.find_nephews()
-        if original:
-            return []
+            return self.find_nephews(original=original)
+
         parent = self.get_next()
         if parent is None:
             return []
