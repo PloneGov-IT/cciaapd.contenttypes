@@ -9,6 +9,7 @@ from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
 from ..vocs.scheda_types import scheda_types
+from Products.CMFCore.interfaces import ISiteRoot
 
 
 class ISchedaPortlet(IPortletDataProvider):
@@ -62,21 +63,6 @@ class EditForm(base.EditForm):
 class Renderer(base.Renderer):
     _template = ViewPageTemplateFile('scheda_portlet.pt')
 
-    def __init__(self, *args):
-        base.Renderer.__init__(self, *args)
-
-        context = aq_inner(self.context)
-        portal_state = getMultiAdapter(
-            (context, self.request), name=u'plone_portal_state')
-        # whether or not the current user is Anonymous
-        self.anonymous = portal_state.anonymous()
-        # the URL of the portal object
-        self.portal_url = portal_state.portal_url()
-
-        plone_tools = getMultiAdapter(
-            (context, self.request), name=u'plone_tools')
-        self.catalog = plone_tools.catalog()
-
     def render(self):
         return self._template()
 
@@ -87,12 +73,10 @@ class Renderer(base.Renderer):
     def results(self):
         return self._data()
 
-    @memoize
     def _data(self):
-        item_list = []
-        folder_list = self.context.listFolderContents(
-            contentFilter={"portal_type": self.data.content_selection})
-        for item in folder_list:
-            item_list.extend(item.contentValues())
-        item_list.sort()
-        return item_list
+        context = self.context.aq_inner
+        view = getMultiAdapter(
+            (context, self.request),
+            name=u'schede_content_view'
+        )
+        return view.get_results()

@@ -26,6 +26,13 @@
       />
   </browser:menuItems>
 
+   <browser:page
+        name="schede_content_view"
+        for="*"
+        class=".schede_content_view.SchedeContentView"
+        layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
+        permission="zope2.View"
+        />
   <browser:page
         name="scheda_view"
         template="templates/scheda.pt"
