@@ -81,8 +81,6 @@ class SchedeContentView(BrowserView):
         Case 3: as a fallback return an empty list
         """
 
-        # import pdb
-        # pdb.set_trace()
         if ISiteRoot.providedBy(self.context):
             return []
 
