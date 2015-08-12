@@ -33,6 +33,7 @@
         layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
         permission="zope2.View"
         />
+        
   <browser:page
         name="scheda_view"
         template="templates/scheda.pt"
