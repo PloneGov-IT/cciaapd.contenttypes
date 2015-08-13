@@ -21,7 +21,10 @@ class SchedeContentView(BrowserView):
         ''' Check for default page and get it from the context
         if default page is not set return None, otherwise the object
         '''
-        default_page = self.context.getDefaultPage()
+        default_page_method = getattr(self.context, 'getDefaultPage', None)
+        if not default_page_method:
+            return None
+        default_page = default_page_method()
         obj = self.context.get(default_page)
         return obj
 
@@ -34,6 +37,10 @@ class SchedeContentView(BrowserView):
 
     def is_scheda(self):
         """Return true if the content is a Scheda"""
+        safe_attribute = getattr(self.context, 'portal_type', None)
+        if not safe_attribute:
+            return
+
         return self.context.portal_type == "Scheda"
 
     def find_nephews(self, portal_type, obj=None, original=True):
@@ -63,8 +70,6 @@ class SchedeContentView(BrowserView):
         for obj in self.context.aq_chain[2:]:
             view = self.get_view(obj, u'schede_content_view')
 
-            if ISiteRoot.providedBy(obj):
-                return
             if view.is_scheda() or view.is_default_view():
                 return obj
 
