@@ -14,24 +14,56 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../portlets/scheda_portlet.py:49
+#: ../portlets/scheda_portlet.py:48
 msgid "Add Scheda Portlet"
 msgstr "Aggiungi Portlet Scheda"
 
-#: ../interfaces.py:24
+#: ../interfaces.py:26
 msgid "Body text"
 msgstr "Testo"
 
-#: ../portlets/scheda_portlet.py:58
+#: ../interfaces.py:88
+msgid "Duties"
+msgstr "Competenze"
+
+#: ../portlets/scheda_portlet.py:57
 msgid "Edit Scheda Portlet"
 msgstr "Modifica Portlet Scheda"
 
+#: ../interfaces.py:70
+msgid "Email"
+msgstr ""
+
+#: ../interfaces.py:82
+msgid "Executive"
+msgstr "Dirigente"
+
+#: ../interfaces.py:64
+msgid "Fax"
+msgstr ""
+
+#: ../interfaces.py:52
+msgid "Location"
+msgstr "Sede"
+
+#: ../interfaces.py:76
+msgid "Pec"
+msgstr "Indirizzo PEC"
+
+#: ../interfaces.py:58
+msgid "Phone"
+msgstr "Telefono"
+
 #: ../profiles/default/types/Scheda.xml
-msgid "Scheda"
+msgid "Scheda attività"
+msgstr ""
+
+#: ../profiles/default/types/Ufficio.xml
+msgid "Ufficio"
 msgstr ""
 
 #. Default: "Seleziona tipo di contenuto"
-#: ../portlets/scheda_portlet.py:22
+#: ../portlets/scheda_portlet.py:21
 msgid "label_disability"
 msgstr ""
 
@@ -39,3 +71,4 @@ msgstr ""
 #: ../behaviors/related_office.py:19
 msgid "label_related_office"
 msgstr "Ufficio correlato"
+

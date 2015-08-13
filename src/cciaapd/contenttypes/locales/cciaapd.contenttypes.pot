@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-11 07:53+0000\n"
+"POT-Creation-Date: 2015-08-13 11:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,28 +17,60 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: cciaapd.contenttypes\n"
 
-#: ../portlets/scheda_portlet.py:50
+#: ../portlets/scheda_portlet.py:49
 msgid ""
 msgstr ""
 
-#: ../portlets/scheda_portlet.py:49
+#: ../portlets/scheda_portlet.py:48
 msgid "Add Scheda Portlet"
 msgstr ""
 
-#: ../interfaces.py:24
+#: ../interfaces.py:26
 msgid "Body text"
 msgstr ""
 
-#: ../portlets/scheda_portlet.py:58
+#: ../interfaces.py:88
+msgid "Duties"
+msgstr ""
+
+#: ../portlets/scheda_portlet.py:57
 msgid "Edit Scheda Portlet"
 msgstr ""
 
+#: ../interfaces.py:70
+msgid "Email"
+msgstr ""
+
+#: ../interfaces.py:82
+msgid "Executive"
+msgstr ""
+
+#: ../interfaces.py:64
+msgid "Fax"
+msgstr ""
+
+#: ../interfaces.py:52
+msgid "Location"
+msgstr ""
+
+#: ../interfaces.py:76
+msgid "Pec"
+msgstr ""
+
+#: ../interfaces.py:58
+msgid "Phone"
+msgstr ""
+
 #: ../profiles/default/types/Scheda.xml
-msgid "Scheda"
+msgid "Scheda attività"
+msgstr ""
+
+#: ../profiles/default/types/Ufficio.xml
+msgid "Ufficio"
 msgstr ""
 
 #. Default: "Seleziona tipo di contenuto"
-#: ../portlets/scheda_portlet.py:22
+#: ../portlets/scheda_portlet.py:21
 msgid "label_disability"
 msgstr ""
 

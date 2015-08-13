@@ -3,4 +3,5 @@
   <object name="Scheda" meta_type="Dexterity FTI"/>
   <object name="ModuliFolder" meta_type="Dexterity FTI"/>
   <object name="RiferimentiFolder" meta_type="Dexterity FTI"/>
+  <object name="Ufficio" meta_type="Dexterity FTI"/>
 </object>
