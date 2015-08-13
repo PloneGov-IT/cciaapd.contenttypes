@@ -1,5 +1,4 @@
 from .. import _
-from Acquisition import aq_inner
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
@@ -9,7 +8,6 @@ from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
 from ..vocs.scheda_types import scheda_types
-from Products.CMFCore.interfaces import ISiteRoot
 
 
 class ISchedaPortlet(IPortletDataProvider):
@@ -73,10 +71,14 @@ class Renderer(base.Renderer):
     def results(self):
         return self._data()
 
+    @memoize
     def _data(self):
         context = self.context.aq_inner
+        if context.portal_type != 'Scheda':
+            return []
+
         view = getMultiAdapter(
             (context, self.request),
             name=u'schede_content_view'
         )
-        return view.get_results()
+        return view.get_results(self.data.content_selection)

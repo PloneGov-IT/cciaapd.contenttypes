@@ -5,10 +5,10 @@ from Products.CMFCore.interfaces import ISiteRoot
 
 class SchedeContentView(BrowserView):
 
-    def portal_type(self):
-        """Returns a portal type from the query string
-        """
-        return self.request.get('portal_type')
+    # def portal_type(self):
+    #     """Returns a portal type from the query string
+    #     """
+    #     return self.request.get('portal_type')
 
     def get_view(self, parent, view_name):
         view = getMultiAdapter(
@@ -36,7 +36,7 @@ class SchedeContentView(BrowserView):
         """Return true if the content is a Scheda"""
         return self.context.portal_type == "Scheda"
 
-    def find_nephews(self, obj=None, original=True):
+    def find_nephews(self, portal_type, obj=None, original=True):
         '''
         Check inside objects all the filtered types and
         return their children.
@@ -46,7 +46,7 @@ class SchedeContentView(BrowserView):
         if obj is None:
             obj = self.context
         children = obj.listFolderContents(
-            contentFilter={'portal_type': self.portal_type()}
+            contentFilter={'portal_type': portal_type}
         )
         results = []
         [results.extend(child.listFolderContents()) for child in children]
@@ -54,7 +54,7 @@ class SchedeContentView(BrowserView):
             obj = self.get_next()
             if obj is not None:
                 view = self.get_view(self.get_next(), u'schede_content_view')
-                results.extend(view.get_results(original=False))
+                results.extend(view.get_results(portal_type, original=False))
 
         return sorted(set(results))
 
@@ -68,7 +68,7 @@ class SchedeContentView(BrowserView):
             if view.is_scheda() or view.is_default_view():
                 return obj
 
-    def get_results(self, original=True):
+    def get_results(self, portal_type, original=True):
         """Returns results depending on request and the following logic
 
         Case 1: a folder with a Scheda set as  default view ->
@@ -85,12 +85,12 @@ class SchedeContentView(BrowserView):
             return []
 
         if self.is_default_view():
-            return self.find_nephews(
-                self.get_default_view_object(),
-                original)
+            return self.find_nephews(portal_type,
+                                     self.get_default_view_object(),
+                                     original)
 
         if self.is_scheda():
-            return self.find_nephews(original=original)
+            return self.find_nephews(portal_type, original=original)
 
         parent = self.get_next()
         if parent is None:
@@ -98,8 +98,8 @@ class SchedeContentView(BrowserView):
 
         view = self.get_view(parent, u'schede_content_view')
 
-        return view.get_results()
+        return view.get_results(portal_type)
 
-    def __call__(self):
-        """"""
-        return self.get_results() or 'No results'
+    # def __call__(self):
+    #     """"""
+    #     return self.get_results() or 'No results'
