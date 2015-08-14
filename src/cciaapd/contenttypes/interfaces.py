@@ -4,6 +4,7 @@
 from cciaapd.contenttypes import _
 from plone.app.textfield import RichText
 from zope.schema import TextLine
+from zope.schema import Datetime
 
 from plone.supermodel import model
 from zope.interface import Interface
@@ -49,46 +50,52 @@ class IUfficio(Interface):
 class IUfficioSchema(model.Schema):
 
     location = TextLine(
-        title=_(u"Location"),
+        title=_("office_location_label", u"Location"),
         default=u"",
         required=False
     )
 
     phone = TextLine(
-        title=_(u"Phone"),
+        title=_("office_phone_label", u"Phone"),
         default=u"",
         required=False
     )
 
     fax = TextLine(
-        title=_(u"Fax"),
+        title=_("office_fax_label", u"Fax"),
         default=u"",
         required=False
     )
 
     email = TextLine(
-        title=_(u"Email"),
+        title=_("office_email_label", u"Email"),
         default=u"",
         required=False
     )
 
     pec = TextLine(
-        title=_(u"Pec"),
+        title=_("office_pec_label", u"Pec"),
         default=u"",
         required=False
     )
 
     executive = TextLine(
-        title=_(u"Executive"),
+        title=_("office_executive_label", u"Executive"),
         default=u"",
         required=False
     )
 
-    competenze = RichText(
-        title=_(u"Duties"),
+    duties = RichText(
+        title=_("office_duties_label", u"Duties"),
         default_mime_type='text/html',
         output_mime_type='text/html',
         allowed_mime_types=('text/html', 'text/plain',),
+        default=u"",
+        required=False
+    )
+
+    office_timetable = TextLine(
+        title=_("office_timetable_label", u"Timetable"),
         default=u"",
         required=False
     )

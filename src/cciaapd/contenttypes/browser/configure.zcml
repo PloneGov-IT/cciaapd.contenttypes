@@ -52,8 +52,17 @@
         />
 
   <browser:page
+        name="ufficio_helper_view"
+        for="*"
+        class=".ufficio_helper_view.UfficioHelperView"
+        layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
+        permission="zope2.View"
+        />
+
+  <browser:page
         name="ufficio_view"
         template="templates/ufficio.pt"
+        class=".ufficio_view.UfficioView"
         for="cciaapd.contenttypes.interfaces.IUfficio"
         layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
         permission="zope2.View"
