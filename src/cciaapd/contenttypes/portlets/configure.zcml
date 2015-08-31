@@ -14,4 +14,13 @@
         editview=".scheda_portlet.EditForm"
         />
 
+  <plone:portlet
+        name="cciaapd.contenttypes.UfficioPortlet"
+        interface=".ufficio_portlet.IUfficioPortlet"
+        assignment=".ufficio_portlet.Assignment"
+        renderer=".ufficio_portlet.Renderer"
+        addview=".ufficio_portlet.AddForm"
+        editview=".ufficio_portlet.EditForm"
+        />
+
 </configure>

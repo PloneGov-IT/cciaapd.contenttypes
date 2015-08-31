@@ -47,6 +47,7 @@ setup(
         'setuptools',
         'z3c.jbot',
         'plone.app.dexterity',
+        'plone.directives.dexterity',
         'plone.app.contenttypes',
         'plone.app.versioningbehavior',
         'plone.app.lockingbehavior',

@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="cciaapd.contenttypes">
+
+    <metal:block fill-slot="content-core">
+    	<div class="officeContactsWrapper"
+    		 tal:define="location python: view.get_field_value('location');
+    		 			 timetable python: view.get_field_value('office_timetable');
+    		 			 phone python: view.get_field_value('phone');
+    		 			 fax python: view.get_field_value('fax');
+    		 			 email python: view.get_field_value('email');
+    		 			 pec python: view.get_field_value('pec');
+    		 			 executive python: view.get_field_value('executive')">
+    		<h3 i18n:translate="contacts_references_label">Contacts and references</h3>
+
+    		<div class="locationTimetable" tal:condition="python: location or timetable">
+    			<p tal:condition="location">
+    				<strong i18n:translate="office_location_label">Location</strong>
+    				<span tal:content="location"></span>
+    			</p>
+    			<p tal:condition="timetable">
+    				<strong i18n:translate="office_timetable_label">Timetable</strong>
+    				<span tal:content="timetable"></span>
+    			</p>
+    		</div>
+
+    		<div class="officeContacts" tal:condition="python: phone or fax or email or pec">
+    			<p tal:condition="phone">
+    				<strong i18n:translate="office_phone_label">Telefono</strong>
+    				<span tal:content="phone"></span>
+    			</p>
+    			<p tal:condition="fax">
+    				<strong i18n:translate="office_fax_label">Fax</strong>
+    				<span tal:content="fax"></span>
+    			</p>
+    			<p tal:condition="email">
+    				<strong i18n:translate="office_email_label">Email</strong>
+    				<span tal:content="email"></span>
+    			</p>
+    			<p tal:condition="pec">
+    				<strong i18n:translate="office_pec_label">Pec</strong>
+    				<span tal:content="pec"></span>
+    			</p>
+    		</div>
+
+    		<div class="officeExecutive" tal:condition="python: executive">
+    			<p tal:condition="executive">
+    				<strong i18n:translate="office_executive_label">Executive</strong>
+    				<span tal:content="executive"></span>
+    			</p>
+    		</div>
+
+    	</div>
+        <div class="proceedingsList" tal:define="schede view/back_references"
+        	 tal:condition="schede">
+        	 <h3 i18n:translate="proceedings_label">List of proceedings managed by this office</h3>
+            <ul>
+            	<li tal:repeat="scheda schede">
+            		<a tal:attributes="href scheda/absolute_url;
+            		   				   title scheda/Title"
+            		   tal:content="scheda/Title">
+            		</a>
+            	</li>
+            </ul>
+        </div>
+    </metal:block>
+
+</html>

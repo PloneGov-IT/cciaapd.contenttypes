@@ -1,0 +1,63 @@
+<dl class="portlet portletUfficio"
+    i18n:domain="plone"
+    tal:define="results view/results">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <span class="tile" tal:content="view/data/portlet_title"/>
+        <span class="portletTopRight"></span>
+    </dt>
+
+
+    <dd class="portletItem"
+        tal:repeat="result results">
+        <div class="officeTitle" tal:condition="python:result.Title or result.location">
+            <div tal:condition="result/Title">
+               <strong tal:content="result/Title"/>
+            </div>
+
+            <div tal:condition="result/location"
+               tal:content="result/location">
+                text here
+            </div>
+        </div>
+
+        <p tal:condition="result/office_timetable"
+           tal:content="result/office_timetable">
+            text here
+        </p>
+
+        <div class="officePhone" tal:condition="python:result.phone or result.fax or result.email">
+
+            <div tal:condition="result/phone"
+               tal:content="result/phone">
+                text here
+            </div>
+
+
+            <div tal:condition="result/fax"
+               tal:content="result/fax">
+                text here
+            </div>
+
+            <div tal:condition="result/email"
+               tal:content="result/email">
+                text here
+            </div>
+        </div>
+
+        <p>
+        </p>
+        <a class="officeLink" href=""
+           tal:attributes="href string:${result/absolute_url}/view;
+                           title result/Description">
+                           Guarda la scheda dell'ufficio
+        </a>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
