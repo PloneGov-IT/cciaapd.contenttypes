@@ -22,7 +22,7 @@ msgstr "Aggiungi Portlet Scheda"
 msgid "Add Ufficio Portlet"
 msgstr "Aggiungi Ufficio Portlet"
 
-#: ../interfaces.py:27
+#: ../interfaces.py:26
 msgid "Body text"
 msgstr "Testo"
 
@@ -58,49 +58,54 @@ msgid "label_related_office"
 msgstr "Ufficio correlato"
 
 #. Default: "Duties"
-#: ../interfaces.py:89
+#: ../interfaces.py:88
 msgid "office_duties_label"
 msgstr "Competenze dell'ufficio"
 
 #. Default: "Email"
 #: ../browser/templates/ufficio.pt:39
-#: ../interfaces.py:71
+#: ../interfaces.py:70
 msgid "office_email_label"
 msgstr ""
 
 #. Default: "Executive"
 #: ../browser/templates/ufficio.pt:50
-#: ../interfaces.py:83
+#: ../interfaces.py:82
 msgid "office_executive_label"
 msgstr "Dirigente"
 
 #. Default: "Fax"
 #: ../browser/templates/ufficio.pt:35
-#: ../interfaces.py:65
+#: ../interfaces.py:64
 msgid "office_fax_label"
 msgstr ""
 
 #. Default: "Location"
 #: ../browser/templates/ufficio.pt:20
-#: ../interfaces.py:53
+#: ../interfaces.py:52
 msgid "office_location_label"
 msgstr "Sede"
 
 #. Default: "Pec"
 #: ../browser/templates/ufficio.pt:43
-#: ../interfaces.py:77
+#: ../interfaces.py:76
 msgid "office_pec_label"
 msgstr "PEC"
 
-#. Default: "Telefono"
+#. Default: "Phone"
 #: ../browser/templates/ufficio.pt:31
-#: ../interfaces.py:59
+#: ../interfaces.py:58
 msgid "office_phone_label"
-msgstr ""
+msgstr "Telefono"
+
+#. Default: "One per line."
+#: ../interfaces.py:97
+msgid "office_timetable_description"
+msgstr "Uno per riga."
 
 #. Default: "Timetable"
 #: ../browser/templates/ufficio.pt:24
-#: ../interfaces.py:98
+#: ../interfaces.py:96
 msgid "office_timetable_label"
 msgstr "Orari"
 
@@ -108,4 +113,3 @@ msgstr "Orari"
 #: ../browser/templates/ufficio.pt:58
 msgid "proceedings_label"
 msgstr "Elenco dei procedimenti gestiti dall'ufficio"
-

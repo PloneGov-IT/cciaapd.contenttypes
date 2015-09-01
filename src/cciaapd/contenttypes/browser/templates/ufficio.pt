@@ -12,6 +12,7 @@
     		 			 fax python: view.get_field_value('fax');
     		 			 email python: view.get_field_value('email');
     		 			 pec python: view.get_field_value('pec');
+               duties python: view.get_field_value('duties');
     		 			 executive python: view.get_field_value('executive')">
     		<h3 i18n:translate="contacts_references_label">Contacts and references</h3>
 
@@ -20,10 +21,14 @@
     				<strong i18n:translate="office_location_label">Location</strong>
     				<span tal:content="location"></span>
     			</p>
-    			<p tal:condition="timetable">
+    			<div tal:condition="timetable">
     				<strong i18n:translate="office_timetable_label">Timetable</strong>
-    				<span tal:content="timetable"></span>
-    			</p>
+    				<ul>
+              <li tal:repeat="time timetable">
+                <span tal:content="time" />
+              </li>
+            </ul>
+    			</div>
     		</div>
 
     		<div class="officeContacts" tal:condition="python: phone or fax or email or pec">
@@ -37,11 +42,15 @@
     			</p>
     			<p tal:condition="email">
     				<strong i18n:translate="office_email_label">Email</strong>
-    				<span tal:content="email"></span>
+    				<a tal:attributes="href string:mailto:${email};
+                               title email"
+               tal:content="email" />
     			</p>
     			<p tal:condition="pec">
     				<strong i18n:translate="office_pec_label">Pec</strong>
-    				<span tal:content="pec"></span>
+    				<a tal:attributes="href string:mailto:${pec};
+                               title pec"
+               tal:content="pec" />
     			</p>
     		</div>
 
@@ -51,7 +60,12 @@
     				<span tal:content="executive"></span>
     			</p>
     		</div>
-
+        <div class="officeDuties" tal:condition="duties">
+          <strong i18n:translate="office_duties_label">Duties</strong>
+          <div id="duties-text"
+              tal:content="structure python:duties.output_relative_to(view.context)"
+          />
+        </div>
     	</div>
         <div class="proceedingsList" tal:define="schede view/back_references"
         	 tal:condition="schede">

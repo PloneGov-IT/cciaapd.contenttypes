@@ -4,8 +4,7 @@
 from cciaapd.contenttypes import _
 from plone.app.textfield import RichText
 from zope.schema import TextLine
-from zope.schema import Datetime
-
+from zope import schema
 from plone.supermodel import model
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
@@ -93,9 +92,11 @@ class IUfficioSchema(model.Schema):
         default=u"",
         required=False
     )
-
-    office_timetable = TextLine(
+    office_timetable = schema.Tuple(
         title=_("office_timetable_label", u"Timetable"),
-        default=u"",
-        required=False
+        description=_("office_timetable_description", u"One per line."),
+        default=(),
+        required=False,
+        value_type=TextLine(),
+        missing_value=(),
     )

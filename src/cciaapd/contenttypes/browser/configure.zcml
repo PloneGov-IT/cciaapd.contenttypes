@@ -67,5 +67,19 @@
         layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
         permission="zope2.View"
         />
-
+  <!-- Custom add and edit form for Ufficio -->
+  <adapter
+    for="Products.CMFCore.interfaces.IFolderish
+         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+         plone.dexterity.interfaces.IDexterityFTI"
+    provides="zope.publisher.interfaces.browser.IBrowserPage"
+    factory=".ufficio_form.AddView"
+    name="Ufficio"
+    />
+  <browser:page
+    for="cciaapd.contenttypes.interfaces.IUfficio"
+    name="edit"
+    class=".ufficio_form.EditView"
+    permission="cmf.ModifyPortalContent"
+    />
 </configure>
