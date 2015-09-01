@@ -22,10 +22,13 @@
             </div>
         </div>
 
-        <p tal:condition="result/office_timetable"
-           tal:content="result/office_timetable">
-            text here
-        </p>
+        <div tal:condition="result/office_timetable">
+          <ul>
+            <li tal:repeat="time result/office_timetable">
+              <span tal:content="time" />
+            </li>
+          </ul>
+        </div>
 
         <div class="officePhone" tal:condition="python:result.phone or result.fax or result.email">
 

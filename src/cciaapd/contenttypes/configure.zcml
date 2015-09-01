@@ -16,7 +16,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="cciaapd.contenttypes"
+      title="CCIAPD: Content Types"
       directory="profiles/default"
       description="Installs the cciaapd.contenttypes add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -24,7 +24,7 @@
 
   <genericsetup:importStep
       name="cciaapd.contenttypes-postInstall"
-      title="cciaapd.contenttypes post_install import step"
+      title="CCIAPD: Content Types post install import step"
       description="Post install import step from cciaapd.contenttypes"
       handler=".setuphandlers.post_install">
   </genericsetup:importStep>
