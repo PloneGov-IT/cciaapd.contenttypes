@@ -3,12 +3,16 @@
  <resourcetypes>
   <link_using_uids value="True"/>
   <linkable purge="False">
+   <element value="ModuliFolder"/>
+   <element value="RiferimentiFolder" />
+   <element value="ArchivioFolder" />
    <element value="Scheda" />
   </linkable>
   <containsobjects purge="False">
    <element value="ModuliFolder"/>
    <element value="RiferimentiFolder" />
    <element value="ArchivioFolder" />
+   <element value="Scheda" />
   </containsobjects>
  </resourcetypes>
 </object>
