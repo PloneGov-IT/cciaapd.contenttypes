@@ -10,7 +10,7 @@
   <property name="link_target"></property>
   <property name="immediate_view">ufficio_view</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">Fasle</property>
+  <property name="filter_content_types">False</property>
   <property name="allowed_content_types" purge="False"></property>
   <property name="allow_discussion">False</property>
   <property name="default_view">ufficio_view</property>
