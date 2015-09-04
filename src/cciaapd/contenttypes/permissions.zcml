@@ -18,6 +18,16 @@
       id="cciaapd.contenttypes.addArchivioFolder"
       title="cciaapd.contenttypes: Add ArchivioFolder"
     />
+
+    <permission
+      id="cciaapd.contenttypes.addUfficio"
+      title="cciaapd.contenttypes: Add Ufficio"
+    />
+
+    <permission
+      id="cciaapd.contenttypes.addScheda"
+      title="cciaapd.contenttypes: Add Scheda"
+    />
   </configure>
 
 </configure>

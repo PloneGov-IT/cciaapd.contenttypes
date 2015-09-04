@@ -18,7 +18,7 @@
     <element value="ufficio_view"/>
   </property>
   <property name="default_view_fallback">False</property>
-  <property name="add_permission">cmf.AddPortalContent</property>
+  <property name="add_permission">cciaapd.contenttypes.addUfficio</property>
   <property name="klass">cciaapd.contenttypes.content.Ufficio</property>
   <property name="behaviors">
     <element value="plone.app.content.interfaces.INameFromTitle"/>
