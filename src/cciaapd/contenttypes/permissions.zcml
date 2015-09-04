@@ -14,6 +14,10 @@
       title="cciaapd.contenttypes: Add RiferimentiFolder"
       />
 
+    <permission
+      id="cciaapd.contenttypes.addArchivioFolder"
+      title="cciaapd.contenttypes: Add ArchivioFolder"
+    />
   </configure>
 
 </configure>

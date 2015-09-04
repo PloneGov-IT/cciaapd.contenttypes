@@ -31,10 +31,13 @@ class ISchedaSchema(model.Schema):
     )
 
 
+class IArchivioFolderSchema(model.Schema):
+
+    """ Schema for Archivio """
+
 class IModuliFolderSchema(model.Schema):
 
     """ Schema for ModuliFolder """
-
 
 class IRiferimentiFolderSchema(model.Schema):
 
