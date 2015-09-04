@@ -17,7 +17,7 @@
             </div>
 
             <div tal:condition="result/location"
-               tal:content="result/location">
+               tal:define="formatted_location python: view.format_location_text(result)" tal:content="structure formatted_location">
                 text here
             </div>
         </div>

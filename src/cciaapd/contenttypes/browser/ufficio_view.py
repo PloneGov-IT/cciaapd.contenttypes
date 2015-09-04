@@ -5,6 +5,7 @@ from zc.relation.interfaces import ICatalog
 from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
 from zope.security import checkPermission
+from Products.CMFCore.utils import getToolByName
 
 
 class UfficioView(BrowserView):
@@ -28,3 +29,10 @@ class UfficioView(BrowserView):
 
     def get_field_value(self, field_name):
         return getattr(self.context, field_name, "")
+
+    def html_to_text(self, text):
+        if not text:
+            return
+        portal_transforms = getToolByName(self, 'portal_transforms')
+        output = portal_transforms.convert('text_to_html', text).getData()
+        return output

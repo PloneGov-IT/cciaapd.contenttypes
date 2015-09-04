@@ -1,4 +1,5 @@
 from Products.Five import BrowserView
+from Products.CMFCore.utils import getToolByName
 
 
 class UfficioHelperView(BrowserView):

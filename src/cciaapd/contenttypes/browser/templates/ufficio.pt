@@ -6,7 +6,7 @@
 
     <metal:block fill-slot="content-core">
     	<div class="officeContactsWrapper"
-    		 tal:define="location python: view.get_field_value('location');
+    		 tal:define="location python: view.html_to_text(view.get_field_value('location'));
     		 			 timetable python: view.get_field_value('office_timetable');
     		 			 phone python: view.get_field_value('phone');
     		 			 fax python: view.get_field_value('fax');
@@ -19,7 +19,7 @@
     		<div class="locationTimetable" tal:condition="python: location or timetable">
     			<p tal:condition="location">
     				<strong i18n:translate="office_location_label">Location</strong>
-    				<span tal:content="location"></span>
+    				<span tal:content="structure location"></span>
     			</p>
     			<div tal:condition="timetable">
     				<strong i18n:translate="office_timetable_label">Timetable</strong>
