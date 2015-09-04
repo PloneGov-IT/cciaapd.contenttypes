@@ -23,6 +23,7 @@
         </div>
 
         <div tal:condition="result/office_timetable">
+          <strong>Orari</strong>
           <ul>
             <li tal:repeat="time result/office_timetable">
               <span tal:content="time" />
@@ -32,20 +33,28 @@
 
         <div class="officePhone" tal:condition="python:result.phone or result.fax or result.email">
 
-            <div tal:condition="result/phone"
-               tal:content="result/phone">
-                text here
+            <div tal:condition="result/phone">
+              <strong>Tel</strong>
+              <span tal:content="result/phone"></span>
             </div>
 
-
-            <div tal:condition="result/fax"
-               tal:content="result/fax">
-                text here
+            <div tal:condition="result/fax">
+              <strong>Fax</strong>
+              <span tal:content="result/fax"></span>
             </div>
 
-            <div tal:condition="result/email"
-               tal:content="result/email">
-                text here
+            <div tal:condition="result/email">
+              <strong>Email</strong>
+              <a tal:attributes="href string:mailto:${result/email};
+                               title result/email"
+               tal:content="result/email" />
+            </div>
+
+            <div tal:condition="result/pec">
+              <strong>Pec</strong>
+              <a tal:attributes="href string:mailto:${result/pec};
+                               title result/pec"
+               tal:content="result/pec" />
             </div>
         </div>
 
