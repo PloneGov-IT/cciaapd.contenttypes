@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object>
+ <resourcetypes>
+  <link_using_uids value="True"/>
+  <linkable purge="False">
+   <element value="Scheda" />
+  </linkable>
+  <containsobjects purge="False">
+   <element value="ModuliFolder"/>
+   <element value="RiferimentiFolder" />
+   <element value="ArchivioFolder" />
+  </containsobjects>
+ </resourcetypes>
+</object>
