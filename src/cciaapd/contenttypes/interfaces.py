@@ -4,6 +4,7 @@
 from cciaapd.contenttypes import _
 from plone.app.textfield import RichText
 from zope.schema import TextLine
+from zope.schema import Text
 from zope import schema
 from plone.supermodel import model
 from zope.interface import Interface
@@ -35,9 +36,11 @@ class IArchivioFolderSchema(model.Schema):
 
     """ Schema for Archivio """
 
+
 class IModuliFolderSchema(model.Schema):
 
     """ Schema for ModuliFolder """
+
 
 class IRiferimentiFolderSchema(model.Schema):
 
@@ -51,7 +54,7 @@ class IUfficio(Interface):
 
 class IUfficioSchema(model.Schema):
 
-    location = TextLine(
+    location = Text(
         title=_("office_location_label", u"Location"),
         default=u"",
         required=False
