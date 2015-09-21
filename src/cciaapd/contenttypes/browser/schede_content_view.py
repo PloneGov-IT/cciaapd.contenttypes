@@ -82,8 +82,10 @@ class SchedeContentView(BrowserView):
                 break
             if not self.is_scheda(item) and not self.is_default_view(item):
                 continue
-            schede_deep = schede_deep + 1
-            results.extend(self.get_scheda_attachments(item, portal_type))
+            schede_attachments = self.get_scheda_attachments(item, portal_type)
+            if schede_attachments:
+                schede_deep = schede_deep + 1
+                results.extend(schede_attachments)
         return results
 
     def get_scheda_attachments(self, scheda, portal_type):
