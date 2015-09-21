@@ -22,5 +22,13 @@
         addview=".ufficio_portlet.AddForm"
         editview=".ufficio_portlet.EditForm"
         />
+  <plone:portlet
+        name="cciaapd.contenttypes.ArchivioPortlet"
+        interface=".archivio_portlet.IArchivioPortlet"
+        assignment=".archivio_portlet.Assignment"
+        renderer=".archivio_portlet.Renderer"
+        addview=".archivio_portlet.AddForm"
+        editview=".archivio_portlet.EditForm"
+        />
 
 </configure>

@@ -1,0 +1,9 @@
+<div class="portlet portletArchivio"
+    i18n:domain="plone"
+    tal:define="archivio view/results">
+
+  <a tal:attributes="href archivio/absolute_url;
+                     title archivio/Title"
+     tal:content="view/data/portlet_title" />
+
+</div>
