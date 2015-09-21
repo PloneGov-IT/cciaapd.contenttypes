@@ -32,7 +32,6 @@
         </div>
 
         <div class="officePhone" tal:condition="python:result.phone or result.fax or result.email">
-
             <div tal:condition="result/phone">
               <strong>Tel</strong>
               <span tal:content="result/phone"></span>

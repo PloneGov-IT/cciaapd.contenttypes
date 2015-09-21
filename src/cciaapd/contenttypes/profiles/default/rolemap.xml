@@ -9,6 +9,25 @@
     <permission name="cciaapd.contenttypes: Add Scheda"
                 acquire="True">
       <role name="Contributor"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="cciaapd.contenttypes: Add ModuliFolder"
+                acquire="True">
+      <role name="Owner"/>
+      <role name="Contributor"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="cciaapd.contenttypes: Add ArchivioFolder"
+                acquire="True">
+      <role name="Owner"/>
+      <role name="Contributor"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="cciaapd.contenttypes: Add RiferimentiFolder"
+                acquire="True">
+      <role name="Owner"/>
+      <role name="Contributor"/>
+      <role name="Site Administrator"/>
     </permission>
   </permissions>
 </rolemap>

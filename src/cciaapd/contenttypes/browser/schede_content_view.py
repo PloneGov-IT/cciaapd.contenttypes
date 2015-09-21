@@ -1,79 +1,30 @@
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
 from Products.CMFCore.interfaces import ISiteRoot
+from OFS.interfaces import IOrderedContainer
 
 
 class SchedeContentView(BrowserView):
 
-    # def portal_type(self):
-    #     """Returns a portal type from the query string
-    #     """
-    #     return self.request.get('portal_type')
+    def get_position_in_parent(self, obj):
+        """
+        Use IOrderedContainer interface to extract the object's manual ordering position
+        """
+        parent = obj.aq_inner.aq_parent
+        ordered = IOrderedContainer(parent, None)
+        if ordered is not None:
+            return ordered.getObjectPosition(obj.getId())
+        return 0
 
-    def get_view(self, parent, view_name):
-        view = getMultiAdapter(
-            (parent, self.request),
-            name=view_name
-        )
-        return view
+    def sort_by_position(self, a, b):
+        """
+        Python list sorter cmp() using position in parent.
 
-    def get_default_view_object(self):
-        ''' Check for default page and get it from the context
-        if default page is not set return None, otherwise the object
-        '''
-        default_page_method = getattr(self.context, 'getDefaultPage', None)
-        if not default_page_method:
-            return None
-        default_page = default_page_method()
-        obj = self.context.get(default_page)
-        return obj
+        Descending order.
+        """
+        return self.get_position_in_parent(a) - self.get_position_in_parent(b)
 
-    def is_default_view(self):
-        """Return true if the default view is set to Scheda"""
-        obj = self.get_default_view_object()
-        if not obj:
-            return False
-        return obj.portal_type == 'Scheda'
-
-    def is_scheda(self):
-        """Return true if the content is a Scheda"""
-        safe_attribute = getattr(self.context, 'portal_type', None)
-        if not safe_attribute:
-            return
-
-        return self.context.portal_type == "Scheda"
-
-    def find_nephews(self, portal_type, obj=None, original=True):
-        '''
-        Check inside objects all the filtered types and
-        return their children.
-        Moreover, parent folders must be traversed to get contents of the
-        first one where the default view is set as Scheda, if exists.
-        '''
-        if obj is None:
-            obj = self.context
-        children = obj.listFolderContents(
-            contentFilter={'portal_type': portal_type}
-        )
-        results = []
-        [results.extend(child.listFolderContents()) for child in children]
-        if original:
-            obj = self.get_next()
-            if obj is not None:
-                view = self.get_view(self.get_next(), u'schede_content_view')
-                results.extend(view.get_results(portal_type, original=False))
-
-        return sorted(set(results))
-
-    def get_next(self):
-        """Find next interesting object in the aq_chain"""
-        for obj in self.context.aq_chain[2:]:
-            view = self.get_view(obj, u'schede_content_view')
-
-            if view.is_scheda() or view.is_default_view():
-                return obj
-
-    def get_results(self, portal_type, original=True):
+    def get_results(self, portal_type):
         """Returns results depending on request and the following logic
 
         Case 1: a folder with a Scheda set as  default view ->
@@ -89,22 +40,63 @@ class SchedeContentView(BrowserView):
         if ISiteRoot.providedBy(self.context):
             return []
 
-        if self.is_default_view():
+        if self.is_default_view(self.context):
             return self.find_nephews(portal_type,
-                                     self.get_default_view_object(),
-                                     original)
+                                     self.get_default_view_object(self.context))
 
-        if self.is_scheda():
-            return self.find_nephews(portal_type, original=original)
+        if self.is_scheda(self.context):
+            return self.find_nephews(portal_type)
+        return []
 
-        parent = self.get_next()
-        if parent is None:
-            return []
+    def is_default_view(self, item):
+        """Return true if the default view is set to Scheda"""
+        obj = self.get_default_view_object(item)
+        if not obj:
+            return False
+        return obj.portal_type == 'Scheda'
 
-        view = self.get_view(parent, u'schede_content_view')
+    def get_default_view_object(self, item):
+        ''' Check for default page and get it from the context
+        if default page is not set return None, otherwise the object
+        '''
+        default_page_method = getattr(item, 'getDefaultPage', None)
+        if not default_page_method:
+            return None
+        default_page = default_page_method()
+        obj = item.get(default_page)
+        return obj
 
-        return view.get_results(portal_type)
+    def find_nephews(self, portal_type, context=None):
+        '''
+        Check inside objects all the filtered types and
+        return their children.
+        Moreover, parent folders must be traversed to get contents of the
+        first one where the default view is set as Scheda, if exists.
+        '''
+        if context is None:
+            context = self.context
+        results = []
+        schede_deep = 0
+        for item in context.aq_chain:
+            if schede_deep == 2:
+                break
+            if not self.is_scheda(item) and not self.is_default_view(item):
+                continue
+            schede_deep = schede_deep + 1
+            results.extend(self.get_scheda_attachments(item, portal_type))
+        return results
 
-    # def __call__(self):
-    #     """"""
-    #     return self.get_results() or 'No results'
+    def get_scheda_attachments(self, scheda, portal_type):
+        children = scheda.listFolderContents(
+            contentFilter={'portal_type': portal_type}
+        )
+        results = []
+        for child in children:
+            items = child.listFolderContents()
+            if items:
+                results.extend(sorted(items, self.sort_by_position))
+        return results
+
+    def is_scheda(self, context):
+        """Return true if the content is a Scheda"""
+        return getattr(context, 'portal_type', "") == "Scheda"

@@ -12,9 +12,10 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types" purge="False">
-    <element value="RiferimentiFolder"/>
-    <element value="ModuliFolder"/>
     <element value="ArchivioFolder"/>
+    <element value="ModuliFolder"/>
+    <element value="RiferimentiFolder"/>
+    <element value="Scheda"/>
   </property>
   <property name="allow_discussion">False</property>
   <property name="default_view">scheda_view</property>
