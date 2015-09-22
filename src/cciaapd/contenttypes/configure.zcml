@@ -9,10 +9,10 @@
 
   <i18n:registerTranslations directory="locales" />
 
+  <include file="permissions.zcml" />
   <include package=".browser" />
   <include package=".behaviors" />
   <include package=".portlets" />
-  <include file="permissions.zcml" />
 
   <genericsetup:registerProfile
       name="default"

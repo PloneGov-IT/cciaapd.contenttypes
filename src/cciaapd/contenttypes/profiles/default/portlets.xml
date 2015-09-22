@@ -20,4 +20,13 @@
     <for interface="plone.app.portlets.interfaces.IColumn" />
     <for interface="plone.app.portlets.interfaces.IDashboard" />
   </portlet>
+  <portlet
+    addview="cciaapd.contenttypes.ArchivioPortlet"
+    title="Archivio Portlet"
+    description="A portlet to show on a Scheda its related archivio"
+    i18n:attributes="title title_archivio_portlet;
+                     description description_archivio_portlet">
+    <for interface="plone.app.portlets.interfaces.IColumn" />
+    <for interface="plone.app.portlets.interfaces.IDashboard" />
+  </portlet>
 </portlets>
