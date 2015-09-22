@@ -29,4 +29,8 @@
       handler=".setuphandlers.post_install">
   </genericsetup:importStep>
 
+  <subscriber
+    for=".interfaces.ISchedaSchema Products.CMFCore.interfaces.IActionSucceededEvent"
+    handler=".interfaces.notify_state_change"
+    />
 </configure>

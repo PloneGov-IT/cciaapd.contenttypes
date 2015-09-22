@@ -9,6 +9,8 @@ from zope import schema
 from plone.supermodel import model
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from plone import api
+from Products.CMFCore.interfaces import IFolderish
 
 
 class ICciaapdContenttypesLayer(IDefaultBrowserLayer):
@@ -30,6 +32,19 @@ class ISchedaSchema(model.Schema):
         allowed_mime_types=('text/html', 'text/plain',),
         default=u""
     )
+
+
+def notify_state_change(self, event):
+    set_new_state(self, event.action)
+
+
+def set_new_state(node, state):
+    children = node.listFolderContents()
+
+    for child in children:
+        api.content.transition(child, transition=state)
+        if IFolderish.providedBy(child):
+            set_new_state(child, state)
 
 
 class IArchivioFolderSchema(model.Schema):
