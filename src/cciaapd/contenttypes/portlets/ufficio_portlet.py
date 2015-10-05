@@ -60,7 +60,7 @@ class Renderer(base.Renderer):
         return len(self._data())
 
     def getPortletClass(self):
-        classes = "box boxScheda boxArchivio"
+        classes = "box boxScheda boxOffice"
         if self.data.css_class:
             classes += " %s" % self.data.css_class
         return classes
