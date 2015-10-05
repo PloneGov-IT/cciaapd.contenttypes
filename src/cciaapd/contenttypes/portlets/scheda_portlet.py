@@ -71,6 +71,12 @@ class Renderer(base.Renderer):
     def results(self):
         return self._data()
 
+    def getPortletClass(self):
+        classes = "box boxScheda"
+        if self.data.css_class:
+            classes += " %s" % self.data.css_class
+        return classes
+
     @memoize
     def _data(self):
         context = self.context.aq_inner
@@ -82,3 +88,22 @@ class Renderer(base.Renderer):
             name=u'schede_content_view'
         )
         return view.get_results(self.data.content_selection)
+
+    def get_class_by_type(self, item):
+        """
+        return a css class based on filetype
+        """
+        if item.portal_type == "Link":
+            return "linkItem"
+        contenttype = ""
+        try:
+            contenttype = item.file.contentType
+        except AttributeError:
+            # Archetype
+            contenttype = item.getFile().content_type
+        if not contenttype:
+            return ""
+        if contenttype == "application/pdf":
+            return "linkFilePdf"
+        else:
+            return "linkFile"

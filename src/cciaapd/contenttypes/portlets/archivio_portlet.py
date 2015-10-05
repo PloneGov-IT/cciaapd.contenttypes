@@ -57,7 +57,13 @@ class Renderer(base.Renderer):
 
     @property
     def available(self):
-        return len(self._data())
+        return self._data() is not None
+
+    def getPortletClass(self):
+        classes = "box boxScheda boxArchivio"
+        if self.data.css_class:
+            classes += " %s" % self.data.css_class
+        return classes
 
     def results(self):
         return self._data()

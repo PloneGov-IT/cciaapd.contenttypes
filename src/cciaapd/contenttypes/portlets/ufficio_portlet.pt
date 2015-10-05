@@ -1,11 +1,11 @@
-<div class="box boxScheda boxOffice"
-    i18n:domain="plone"
-    tal:define="results view/results">
+<div tal:attributes="class view/getPortletClass"
+     i18n:domain="plone"
+     tal:define="results view/results">
 
     <h4 class="boxHeader" tal:content="view/data/portlet_title"></h4>
 
     <div class="boxContent">
-      
+
       <tal:office repeat="result results">
         <h5 class="officeTitle" tal:condition="python:result.Title">
           <a href=""
@@ -29,14 +29,14 @@
           </ul>
         </div>
 
-        <div class="officePhone" tal:condition="python:result.phone">            
+        <div class="officePhone" tal:condition="python:result.phone">
           <h6>Telefono</h6>
-          <p tal:content="result/phone"></p>            
+          <p tal:content="result/phone"></p>
         </div>
 
         <div class="officeFax" tal:condition="python:result.fax">
           <h6>Fax</h6>
-          <p tal:content="result/fax"></p>    
+          <p tal:content="result/fax"></p>
         </div>
          <tal:mail condition="python:result.email or result.pec">
             <div tal:condition="result/email" class="officeEmail">
