@@ -70,7 +70,7 @@ msgstr ""
 msgid "office_duties_label"
 msgstr ""
 
-#. Default: "Email"
+#. Default: "E-mail"
 #: ../browser/templates/ufficio.pt:39
 #: ../interfaces.py:70
 msgid "office_email_label"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "office_pec_label"
 msgstr ""
 
-#. Default: "Telefono"
+#. Default: "Tel"
 #: ../browser/templates/ufficio.pt:31
 #: ../interfaces.py:58
 msgid "office_phone_label"

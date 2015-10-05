@@ -37,7 +37,7 @@
         		<div class="officeContacts" tal:condition="python: phone or fax or email or pec">
                     <h5>Recapiti</h5>
         			<div tal:condition="phone" class="officePhone">
-        				<h6 i18n:translate="office_phone_label">Telefono</h6>
+        				<h6 i18n:translate="office_phone_label">Tel</h6>
         				<p tal:content="phone"></p>
         			</div>
         			<div tal:condition="fax" class="officeFax">
@@ -45,7 +45,7 @@
         				<p tal:content="fax"></p>
         			</div>
         			<div tal:condition="email" class="officeEmail">
-        				<h6 i18n:translate="office_email_label">Email</h6>
+        				<h6 i18n:translate="office_email_label">E-mail</h6>
         				<p><a tal:attributes="href string:mailto:${email};
                                    title email"
                    tal:content="email"></a></p>
