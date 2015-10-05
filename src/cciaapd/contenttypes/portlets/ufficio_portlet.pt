@@ -1,74 +1,59 @@
-<dl class="portlet portletUfficio"
+<div class="box boxScheda boxOffice"
     i18n:domain="plone"
     tal:define="results view/results">
 
-    <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-        <span class="tile" tal:content="view/data/portlet_title"/>
-        <span class="portletTopRight"></span>
-    </dt>
+    <h4 class="boxHeader" tal:content="view/data/portlet_title"></h4>
 
+    <div class="boxContent">
+      
+      <tal:office repeat="result results">
+        <h5 class="officeTitle" tal:condition="python:result.Title">
+          <a href=""
+             tal:attributes="href string:${result/absolute_url}/view;
+                       title result/Description">
+            <span tal:replace="result/Title"/>
+          </a>
+        </h5>
 
-    <dd class="portletItem"
-        tal:repeat="result results">
-        <div class="officeTitle" tal:condition="python:result.Title or result.location">
-            <div tal:condition="result/Title">
-               <strong tal:content="result/Title"/>
-            </div>
-
-            <div tal:condition="result/location"
-               tal:define="formatted_location python: view.format_location_text(result)" tal:content="structure formatted_location">
-                text here
-            </div>
+        <div class="officeAddress" tal:condition="result/location"
+           tal:define="formatted_location python: view.format_location_text(result)" tal:content="structure formatted_location">
+            text here
         </div>
 
-        <div tal:condition="result/office_timetable">
-          <strong>Orari</strong>
+        <div class="officeTime" tal:condition="result/office_timetable">
+          <h6>Orari</h6>
           <ul>
             <li tal:repeat="time result/office_timetable">
-              <span tal:content="time" />
+              <span tal:replace="time" />
             </li>
           </ul>
         </div>
 
-        <div class="officePhone" tal:condition="python:result.phone or result.fax or result.email">
-            <div tal:condition="result/phone">
-              <strong>Tel</strong>
-              <span tal:content="result/phone"></span>
-            </div>
-
-            <div tal:condition="result/fax">
-              <strong>Fax</strong>
-              <span tal:content="result/fax"></span>
-            </div>
-
-            <div tal:condition="result/email">
-              <strong>Email</strong>
-              <a tal:attributes="href string:mailto:${result/email};
-                               title result/email"
-               tal:content="result/email" />
-            </div>
-
-            <div tal:condition="result/pec">
-              <strong>Pec</strong>
-              <a tal:attributes="href string:mailto:${result/pec};
-                               title result/pec"
-               tal:content="result/pec" />
-            </div>
+        <div class="officePhone" tal:condition="python:result.phone">            
+          <h6>Telefono</h6>
+          <p tal:content="result/phone"></p>            
         </div>
 
-        <p>
-        </p>
-        <a class="officeLink" href=""
-           tal:attributes="href string:${result/absolute_url}/view;
-                           title result/Description">
-                           Guarda la scheda dell'ufficio
-        </a>
-    </dd>
+        <div class="officeFax" tal:condition="python:result.fax">
+          <h6>Fax</h6>
+          <p tal:content="result/fax"></p>    
+        </div>
+         <tal:mail condition="python:result.email or result.pec">
+            <div tal:condition="result/email" class="officeEmail">
+              <h6>E-mail</h6>
+              <p><a tal:attributes="href string:mailto:${result/email};
+                               title result/email"
+               tal:content="result/email"></a></p>
+            </div>
 
-    <dd class="portletFooter">
-        <span class="portletBottomLeft"></span>
-        <span class="portletBottomRight"></span>
-    </dd>
+            <div class="officePec" tal:condition="result/pec">
+              <h6>Pec</h6>
+              <p><a tal:attributes="href string:mailto:${result/pec};
+                               title result/pec"
+               tal:content="result/pec"></a></p>
+            </div>
+        </tal:mail>
+    </tal:office>
+  </div>
 
-</dl>
+</div>
