@@ -96,7 +96,7 @@ msgstr "PEC"
 #: ../browser/templates/ufficio.pt:31
 #: ../interfaces.py:58
 msgid "office_phone_label"
-msgstr "Telefono"
+msgstr "Tel"
 
 #. Default: "One per line."
 #: ../interfaces.py:97
