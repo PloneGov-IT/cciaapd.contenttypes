@@ -11,62 +11,62 @@
     		 			 phone python: view.get_field_value('phone');
     		 			 fax python: view.get_field_value('fax');
     		 			 email python: view.get_field_value('email');
-    		 			 pec python: view.get_field_value('pec');
-               duties python: view.get_field_value('duties');
+    		 			 pec python: view.get_field_value('pec');                        
     		 			 executive python: view.get_field_value('executive')">
-    		<h3 i18n:translate="contacts_references_label">Contacts and references</h3>
+    		<h4 i18n:translate="contacts_references_label">Contacts and references</h4>
 
-    		<div class="locationTimetable" tal:condition="python: location or timetable">
-    			<p tal:condition="location">
-    				<strong i18n:translate="office_location_label">Location</strong>
-    				<span tal:content="structure location"></span>
-    			</p>
-    			<div tal:condition="timetable">
-    				<strong i18n:translate="office_timetable_label">Timetable</strong>
+    		<div class="officeLocation" tal:condition="python: location or timetable">
+    			<div class="officeLoc" tal:condition="location">
+    				<h5 i18n:translate="office_location_label">Location</h5>
+    				<div tal:replace="structure location"></div>
+    			</div>
+    			<div class="officeTime" tal:condition="timetable">
+    				<h5 i18n:translate="office_timetable_label">Timetable</h5>
     				<ul>
-              <li tal:repeat="time timetable">
-                <span tal:content="time" />
-              </li>
-            </ul>
+                      <li tal:repeat="time timetable">
+                        <span tal:replace="time" />
+                      </li>
+                    </ul>
     			</div>
     		</div>
 
     		<div class="officeContacts" tal:condition="python: phone or fax or email or pec">
-    			<p tal:condition="phone">
-    				<strong i18n:translate="office_phone_label">Telefono</strong>
-    				<span tal:content="phone"></span>
-    			</p>
-    			<p tal:condition="fax">
-    				<strong i18n:translate="office_fax_label">Fax</strong>
-    				<span tal:content="fax"></span>
-    			</p>
-    			<p tal:condition="email">
-    				<strong i18n:translate="office_email_label">Email</strong>
-    				<a tal:attributes="href string:mailto:${email};
+                <h5>Recapiti</h5>
+    			<div tal:condition="phone" class="officePhone">
+    				<h6 i18n:translate="office_phone_label">Telefono</h6>
+    				<p tal:content="phone"></p>
+    			</div>
+    			<div tal:condition="fax" class="officeFax">
+    				<h6 i18n:translate="office_fax_label">Fax</h6>
+    				<p tal:content="fax"></p>
+    			</div>
+    			<div tal:condition="email" class="officeEmail">
+    				<h6 i18n:translate="office_email_label">Email</h6>
+    				<p><a tal:attributes="href string:mailto:${email};
                                title email"
-               tal:content="email" />
-    			</p>
-    			<p tal:condition="pec">
-    				<strong i18n:translate="office_pec_label">Pec</strong>
-    				<a tal:attributes="href string:mailto:${pec};
+               tal:content="email"></a></p>
+    			</div>
+    			<div tal:condition="pec" class="officePec">
+    				<h6 i18n:translate="office_pec_label">Pec</h6>
+    				<p><a tal:attributes="href string:mailto:${pec};
                                title pec"
-               tal:content="pec" />
-    			</p>
+               tal:content="pec" /></p>
+    			</div>
     		</div>
 
     		<div class="officeExecutive" tal:condition="python: executive">
-    			<p tal:condition="executive">
-    				<strong i18n:translate="office_executive_label">Executive</strong>
-    				<span tal:content="executive"></span>
-    			</p>
+				<h5 i18n:translate="office_executive_label">Executive</h5>
+				<p tal:content="executive"></p>
+    			
     		</div>
-        <div class="officeDuties" tal:condition="duties">
-          <strong i18n:translate="office_duties_label">Duties</strong>
+        </div>
+
+        <div class="officeDuties" tal:condition="duties" tal:define="duties python: view.get_field_value('duties');">
+          <h4 i18n:translate="office_duties_label">Duties</h4>
           <div id="duties-text"
-              tal:content="structure python:duties.output_relative_to(view.context)"
+              tal:replace="structure python:duties.output_relative_to(view.context)"
           />
         </div>
-    	</div>
         <div class="proceedingsList" tal:define="schede view/back_references"
         	 tal:condition="schede">
         	 <h3 i18n:translate="proceedings_label">List of proceedings managed by this office</h3>
