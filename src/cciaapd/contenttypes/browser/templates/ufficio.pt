@@ -83,7 +83,7 @@
                 		   tal:content="scheda/Title">
                 		</a>
                     </dt>
-                    <dd>
+                    <dd tal:content="scheda/Description">
                         Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis.
                     </dd>
             	</tal:scheda>
