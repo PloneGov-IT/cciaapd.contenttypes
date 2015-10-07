@@ -75,10 +75,12 @@ class IUfficioSchema(model.Schema):
         required=False
     )
 
-    phone = TextLine(
+    phone = schema.Tuple(
         title=_("office_phone_label", u"Phone"),
-        default=u"",
-        required=False
+        default=(),
+        required=False,
+        value_type=TextLine(),
+        missing_value=(),
     )
 
     fax = TextLine(
