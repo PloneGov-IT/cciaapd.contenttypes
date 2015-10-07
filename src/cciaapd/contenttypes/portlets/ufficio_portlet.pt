@@ -31,7 +31,7 @@
 
         <div class="officePhone" tal:condition="python:result.phone">
           <h6>Telefono</h6>
-          <p tal:content="result/phone"></p>
+          <p tal:repeat="number result/phone" tal:content="number"></p>
         </div>
 
         <div class="officeFax" tal:condition="python:result.fax">

@@ -36,9 +36,9 @@
 
         		<div class="officeContacts" tal:condition="python: phone or fax or email or pec">
                     <h5>Recapiti</h5>
-        			<div tal:condition="phone" class="officePhone" tal:repeat="number phone">
+        			<div tal:condition="phone" class="officePhone">
         				<h6 i18n:translate="office_phone_label">Tel</h6>
-        				<p tal:content="number"></p>
+        				<p tal:repeat="number phone" tal:content="number"></p>
         			</div>
         			<div tal:condition="fax" class="officeFax">
         				<h6 i18n:translate="office_fax_label">Fax</h6>
