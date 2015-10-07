@@ -38,7 +38,7 @@
                     <h5>Recapiti</h5>
         			<div tal:condition="phone" class="officePhone">
         				<h6 i18n:translate="office_phone_label">Tel</h6>
-        				<p tal:repeat="number phone" tal:content="number"></p>
+        				<p><span tal:repeat="number phone" tal:content="number"></span> </p>
         			</div>
         			<div tal:condition="fax" class="officeFax">
         				<h6 i18n:translate="office_fax_label">Fax</h6>
