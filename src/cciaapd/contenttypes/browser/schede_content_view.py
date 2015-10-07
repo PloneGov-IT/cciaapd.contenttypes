@@ -36,7 +36,6 @@ class SchedeContentView(BrowserView):
 
         Case 3: as a fallback return an empty list
         """
-
         if ISiteRoot.providedBy(self.context):
             return []
 
@@ -89,6 +88,9 @@ class SchedeContentView(BrowserView):
         return results
 
     def get_scheda_attachments(self, scheda, portal_type):
+        default_view_obj = self.get_default_view_object(scheda)
+        if default_view_obj and self.is_scheda(default_view_obj):
+            scheda = default_view_obj
         children = scheda.listFolderContents(
             contentFilter={'portal_type': portal_type}
         )
