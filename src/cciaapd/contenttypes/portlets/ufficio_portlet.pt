@@ -16,7 +16,7 @@
         </h5>
 
         <div class="officeAddress" tal:condition="result/location"
-           tal:define="formatted_location python: view.format_location_text(result)" tal:content="structure formatted_location">
+           tal:define="formatted_location python: view.format_text_field(result,'location')" tal:content="structure formatted_location">
             text here
         </div>
 
@@ -29,9 +29,10 @@
           </ul>
         </div>
 
-        <div class="officePhone" tal:condition="python:result.phone">
+        <div class="officePhone" tal:condition="python:result.phone"
+                                 tal:define="formatted_phone_numbers python: view.format_text_field(result,'phone')">
           <h6>Telefono</h6>
-          <p tal:repeat="number result/phone" tal:content="number"></p>
+          <p tal:content="structure formatted_phone_numbers"></p>
         </div>
 
         <div class="officeFax" tal:condition="python:result.fax">

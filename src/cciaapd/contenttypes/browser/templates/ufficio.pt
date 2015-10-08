@@ -12,7 +12,7 @@
     	<div class="officeContactsWrapper"
     		 tal:define="location python: view.html_to_text(view.get_field_value('location'));
     		 			 timetable python: view.get_field_value('office_timetable');
-    		 			 phone python: view.get_field_value('phone');
+    		 			 phone python: view.html_to_text(view.get_field_value('phone'));
     		 			 fax python: view.get_field_value('fax');
     		 			 email python: view.get_field_value('email');
     		 			 pec python: view.get_field_value('pec');
@@ -38,7 +38,7 @@
                     <h5>Recapiti</h5>
         			<div tal:condition="phone" class="officePhone">
         				<h6 i18n:translate="office_phone_label">Tel</h6>
-        				<p tal:repeat="number phone" tal:content="number"></p>
+        				<p tal:content="structure phone"></p>
         			</div>
         			<div tal:condition="fax" class="officeFax">
         				<h6 i18n:translate="office_fax_label">Fax</h6>

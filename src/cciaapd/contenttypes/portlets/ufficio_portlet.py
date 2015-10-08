@@ -80,9 +80,9 @@ class Renderer(base.Renderer):
         )
         return view.get_results()
 
-    def format_location_text(self, office):
+    def format_text_field(self, office, field):
         view = getMultiAdapter(
             (office, self.request),
             name=u'ufficio_view'
         )
-        return view.html_to_text(getattr(office, 'location', ''))
+        return view.html_to_text(getattr(office, field, ''))
