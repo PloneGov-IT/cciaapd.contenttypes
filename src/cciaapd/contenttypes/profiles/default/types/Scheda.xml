@@ -34,6 +34,7 @@
     <element value="plone.app.lockingbehavior.behaviors.ILocking" />
     <element value="plone.app.relationfield.behavior.IRelatedItems" />
     <element value="cciaapd.contenttypes.behaviors.related_office.IRelatedOffice" />
+    <element value="plone.app.contenttypes.behaviors.tableofcontents.ITableOfContents"/>
   </property>
   <property name="schema">cciaapd.contenttypes.interfaces.ISchedaSchema</property>
   <property name="model_source"></property>
