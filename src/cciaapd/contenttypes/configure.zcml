@@ -33,17 +33,5 @@
     for=".interfaces.ISchedaSchema Products.CMFCore.interfaces.IActionSucceededEvent"
     handler=".events.events_state.notify_state_change"
     />
-  <subscriber
-    for=".interfaces.IArchivioFolderSchema Products.CMFCore.interfaces.IActionSucceededEvent"
-    handler=".events.events_state.notify_state_change"
-    />
-    <subscriber
-      for=".interfaces.IModuliFolderSchema Products.CMFCore.interfaces.IActionSucceededEvent"
-      handler=".events.events_state.notify_state_change"
-    />
-    <subscriber
-      for=".interfaces.IRiferimentiFolderSchema Products.CMFCore.interfaces.IActionSucceededEvent"
-      handler=".events.events_state.notify_state_change"
-    />
 
 </configure>
