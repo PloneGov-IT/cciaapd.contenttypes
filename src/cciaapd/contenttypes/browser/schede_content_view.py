@@ -2,6 +2,8 @@ from Products.Five import BrowserView
 from zope.component import getMultiAdapter
 from Products.CMFCore.interfaces import ISiteRoot
 from OFS.interfaces import IOrderedContainer
+from plone.memoize import view
+from cciaapd.contenttypes import logger
 
 
 class SchedeContentView(BrowserView):
@@ -38,8 +40,7 @@ class SchedeContentView(BrowserView):
         """
         if ISiteRoot.providedBy(self.context):
             return []
-
-        if self.is_default_view(self.context):
+        if self.has_default_view(self.context):
             return self.find_nephews(portal_type,
                                      self.get_default_view_object(self.context))
 
@@ -47,13 +48,15 @@ class SchedeContentView(BrowserView):
             return self.find_nephews(portal_type)
         return []
 
-    def is_default_view(self, item):
+    @view.memoize
+    def has_default_view(self, item):
         """Return true if the default view is set to Scheda"""
         obj = self.get_default_view_object(item)
         if not obj:
             return False
         return obj.portal_type == 'Scheda'
 
+    @view.memoize
     def get_default_view_object(self, item):
         ''' Check for default page and get it from the context
         if default page is not set return None, otherwise the object
@@ -79,7 +82,17 @@ class SchedeContentView(BrowserView):
         for item in context.aq_chain:
             if schede_deep == 2:
                 break
-            if not self.is_scheda(item) and not self.is_default_view(item):
+            context_state = getMultiAdapter(
+                (item, self.request),
+                name=u'plone_context_state'
+            )
+            if context_state.is_default_page():
+                # if is a default view, skip it, we'll handle it on the folder.
+                # this avoid double entries
+                continue
+            if not self.is_scheda(item) and not self.has_default_view(item):
+                # if the context isn't a scheda and its default_view isn't a
+                # scheda, skip it
                 continue
             schede_attachments = self.get_scheda_attachments(item, portal_type)
             if schede_attachments:
