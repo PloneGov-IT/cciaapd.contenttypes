@@ -13,9 +13,16 @@ def notify_state_change(self, event):
     sublevels_list = self.listFolderContents()
 
     for item in sublevels_list:
+        if item == self:
+            continue
+        if api.content.get_state(item) == 'published' and event.action == 'publish':
+            continue
+        if api.content.get_state(item) == 'private' and event.action == 'hide':
+            continue
+        if api.content.get_state(item) == 'visible' and event.action == 'reject':
+            continue
         try:
-            if item != self:
-                api.content.transition(item, transition=event.action)
+            api.content.transition(item, transition=event.action)
         except InvalidParameterError as e:
             logger.exception(e)
         except Exception as e:
