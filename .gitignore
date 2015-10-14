@@ -2,11 +2,15 @@
 *.mo
 *.pyc
 .installed.cfg
+.editorconfig
 .mr.developer.cfg
 .project
 .pydevproject
 .settings/
 bin/
+local/
+include/
+lib/
 buildout-cache/
 develop-eggs/
 parts/
@@ -18,3 +22,4 @@ htmlcov/
 *.log
 output.xml
 *.swp
+*.pyo
