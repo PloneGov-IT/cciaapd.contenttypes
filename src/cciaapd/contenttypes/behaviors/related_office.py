@@ -9,6 +9,8 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope.interface import alsoProvides
 from ..interfaces import IUfficio
+from plone.supermodel.interfaces import FIELDSETS_KEY
+from plone.supermodel.model import Fieldset
 
 
 class IRelatedOffice(model.Schema):
@@ -28,6 +30,9 @@ class IRelatedOffice(model.Schema):
         required=False
     )
 
+fieldset = Fieldset('categorization',
+                    label=_(u'Categorization'), fields=['related_office'])
+IRelatedOffice.setTaggedValue(FIELDSETS_KEY, [fieldset])
 
 class RelatedOffice(model.Schema):
 
