@@ -70,8 +70,9 @@ class Renderer(base.Renderer):
 
     @memoize
     def _data(self):
+
         context = self.context.aq_inner
-        if context.portal_type != 'Scheda':
+        if context.portal_type == 'Ufficio':
             return []
 
         view = getMultiAdapter(
