@@ -1,0 +1,14 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:gs="http://namespaces.zope.org/genericsetup"
+  i18n_domain="cciaapd.contenttypes">
+
+  <gs:upgradeStep
+    title="Upgrade cciaapd.contenttypes to 1010: profile"
+    description="cciaapd.contenttypes upgrade for updating the ui_catalog for the Ufficio type"
+    source="*"
+    destination="1010"
+    handler=".to_1010.update_cciaapd_contenttypes"
+    profile="cciaapd.contenttypes:default"
+  />
+</configure>

@@ -14,7 +14,8 @@
   <include package=".behaviors" />
   <include package=".portlets" />
   <include package=".adapters" />
-  
+  <include package=".upgrades" />
+
   <genericsetup:registerProfile
       name="default"
       title="CCIAPD: Content Types"
