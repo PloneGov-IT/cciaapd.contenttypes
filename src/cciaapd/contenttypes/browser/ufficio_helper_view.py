@@ -15,7 +15,7 @@ class UfficioHelperView(BrowserView):
         if len(related_office_list) == 0:
             return[]
 
-        return sorted(related_office_list,key=lambda x: x.Title())
+        return related_office_list
 
     def __call__(self):
         """"""
