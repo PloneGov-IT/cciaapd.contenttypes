@@ -51,7 +51,8 @@ setup(
         'plone.app.contenttypes',
         'plone.app.versioningbehavior',
         'plone.app.lockingbehavior',
-	'plone.app.referenceablebehavior',
+	    'plone.app.referenceablebehavior',
+        'rer.bandi',
     ],
     extras_require={
         'test': [

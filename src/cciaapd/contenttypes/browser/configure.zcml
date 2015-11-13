@@ -2,7 +2,8 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="cciaapd.contenttypes">
+    i18n_domain="cciaapd.contenttypes"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
   <include package="z3c.jbot" file="meta.zcml" />
@@ -90,4 +91,15 @@
     layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
     permission="zope2.View"
     /-->
+
+  <!-- Render table of contents for rer.bandi-->
+  <browser:viewlet
+      zcml:condition="installed rer.bandi"
+      name="plone.tableofcontents"
+      for="rer.bandi.interfaces.IBando"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+      class="plone.app.layout.viewlets.common.TableOfContentsViewlet"
+      permission="zope2.View"
+      layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
+      />
 </configure>
