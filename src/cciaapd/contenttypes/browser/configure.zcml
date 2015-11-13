@@ -84,13 +84,14 @@
     permission="cmf.ModifyPortalContent"
     />
 
-  <!--browser:page
+  <browser:page
     name="archivio_view"
+    class=".archivio_view.ArchivioView"
     template="templates/archivio_view.pt"
     for="*"
     layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
     permission="zope2.View"
-    /-->
+    />
 
   <!-- Render table of contents for rer.bandi-->
   <browser:viewlet
@@ -100,6 +101,15 @@
       manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
       class="plone.app.layout.viewlets.common.TableOfContentsViewlet"
       permission="zope2.View"
+      layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
+      />
+  <!-- custom breadcrumbs view to fix the problem for Schede set as default views -->
+  <browser:page
+      for="*"
+      name="breadcrumbs_view"
+      class=".custom_breadcrumbs_view.CustomBreadcrumbsView"
+      permission="zope.Public"
+      allowed_attributes="breadcrumbs"
       layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
       />
 </configure>
