@@ -82,4 +82,12 @@
     class=".ufficio_form.EditView"
     permission="cmf.ModifyPortalContent"
     />
+
+  <browser:page
+    name="archivio_view"
+    template="templates/archivio_view.pt"
+    for="*"
+    layer="cciaapd.contenttypes.interfaces.ICciaapdContenttypesLayer"
+    permission="zope2.View"
+    />
 </configure>

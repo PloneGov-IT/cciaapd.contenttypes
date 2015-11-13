@@ -7,6 +7,7 @@
    <element value="RiferimentiFolder" />
    <element value="ArchivioFolder" />
    <element value="Scheda" />
+   <element value="Ufficio" />
   </linkable>
   <containsobjects purge="False">
    <element value="ModuliFolder"/>
