@@ -38,7 +38,7 @@
                     <h5>Recapiti</h5>
         			<div tal:condition="phone" class="officePhone">
         				<h6 i18n:translate="office_phone_label">Tel</h6>
-        				<p tal:content="structure phone"></p>
+                <tal:text tal:content="structure phone"></tal:text>
         			</div>
         			<div tal:condition="fax" class="officeFax">
         				<h6 i18n:translate="office_fax_label">Fax</h6>
@@ -61,7 +61,7 @@
         		<div class="officeExecutive" tal:condition="python: executive">
     				<h5 i18n:translate="office_executive_label">Executive</h5>
     				<p tal:content="executive"></p>
-        			
+
         		</div>
             </div>
         </div>
