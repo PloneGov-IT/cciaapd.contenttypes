@@ -48,7 +48,7 @@ class UfficioView(BrowserView):
             obj = intids.queryObject(rel.from_id)
             if obj is not None and checkPermission('zope2.View', obj):
                 result.append(obj)
-                
+
         return result
 
     def get_field_value(self, field_name):
@@ -60,3 +60,15 @@ class UfficioView(BrowserView):
         portal_transforms = getToolByName(self, 'portal_transforms')
         output = portal_transforms.convert('text_to_html', text).getData()
         return output
+
+    def generate_mail_tag(self, address):
+        if not address:
+            return ""
+        tag = "<a title=\"%s\" href=\"javascript:location.href='"\
+              "mailto:'+String.fromCharCode(" % address
+        for index, letter in enumerate(address):
+            tag += "%s" % ord(letter)
+            if index + 1 < len(address):
+                tag += ", "
+        tag += ")+'?'\">%s</a>" % address
+        return tag

@@ -87,3 +87,15 @@ class Renderer(base.Renderer):
             name=u'ufficio_view'
         )
         return view.html_to_text(getattr(office, field, ''))
+
+    def generate_mail_tag(self, address):
+        if not address:
+            return ""
+        tag = "<a title=\"%s\" href=\"javascript:location.href='"\
+              "mailto:'+String.fromCharCode(" % address
+        for index, letter in enumerate(address):
+            tag += "%s" % ord(letter)
+            if index + 1 < len(address):
+                tag += ", "
+        tag += ")+'?'\">%s</a>" % address
+        return tag

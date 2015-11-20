@@ -39,19 +39,17 @@
           <h6>Fax</h6>
           <p tal:content="result/fax"></p>
         </div>
-         <tal:mail condition="python:result.email or result.pec">
-            <div tal:condition="result/email" class="officeEmail">
+         <tal:mail define="email python:view.generate_mail_tag(result.email);
+                           pec python:view.generate_mail_tag(result.pec)"
+                   condition="python:email or pec">
+            <div tal:condition="email" class="officeEmail">
               <h6>E-mail</h6>
-              <p><a tal:attributes="href string:mailto:${result/email};
-                               title result/email"
-               tal:content="result/email"></a></p>
+              <p><a tal:replace="structure email" /></p>
             </div>
 
-            <div class="officePec" tal:condition="result/pec">
+            <div class="officePec" tal:condition="pec">
               <h6>Pec</h6>
-              <p><a tal:attributes="href string:mailto:${result/pec};
-                               title result/pec"
-               tal:content="result/pec"></a></p>
+              <p><a tal:replace="structure pec" /></p>
             </div>
         </tal:mail>
     </tal:office>
