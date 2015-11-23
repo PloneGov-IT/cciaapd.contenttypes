@@ -23,4 +23,4 @@ class ArchivioView(BrowserView):
         if contenttype == "application/pdf":
             return "fa fa-file-pdf-o"
         else:
-            return "fa fa-text-o"
+            return "fa fa-file-text-o"
