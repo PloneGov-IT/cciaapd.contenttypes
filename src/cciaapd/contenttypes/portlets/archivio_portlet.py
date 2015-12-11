@@ -73,10 +73,27 @@ class Renderer(base.Renderer):
         context = self.context.aq_inner
         if context.portal_type != 'Scheda':
             return None
+        archivi = []
+        for elem in context.aq_chain:
+            try:
+                elem_archivi = self.get_right_context(elem).listFolderContents(
+                    contentFilter={'portal_type': "ArchivioFolder"}
+                )
+                for archivio in elem_archivi:
+                    if archivio not in archivi:
+                        archivi.append(archivio)
+            except AttributeError:
+                continue
+        return archivi
 
-        archivio = context.listFolderContents(
-            contentFilter={'portal_type': "ArchivioFolder"}
-        )
-        if not archivio:
-            return None
-        return archivio[0]
+    def get_right_context(self, item):
+        ''' Check for default page and get it from the context
+        if default page is not set return None, otherwise the object
+        '''
+        default_page_method = getattr(item, 'getDefaultPage', None)
+        if not default_page_method:
+            return item
+        default_page = default_page_method()
+        if not default_page:
+            return item
+        return item.get(default_page) or item
