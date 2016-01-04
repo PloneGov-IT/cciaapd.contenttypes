@@ -105,11 +105,10 @@ class SchedeContentView(BrowserView):
         if default_view_obj and self.is_scheda(default_view_obj):
             scheda = default_view_obj
         children = scheda.listFolderContents(
-            contentFilter={'portal_type': portal_type}
-        )
+            contentFilter={'portal_type': portal_type})
         results = []
         for child in children:
-            items = child.listFolderContents()
+            items = [x for x in child.listFolderContents() if not x.isExpired()]
             if items:
                 results.extend(sorted(items, self.sort_by_position))
         return results
