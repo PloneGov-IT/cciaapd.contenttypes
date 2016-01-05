@@ -1,8 +1,16 @@
-graft src/cciaapd
-graft docs/
-include *.cfg *.rst *.in
+include *.rst
+recursive-include docs *
+recursive-include src *
+global-exclude *.pyc
+global-include *.mo
+exclude .editorconfig
+exclude .gitattributes
 include *.py
 include .coveragerc
-recursive-include docs *.GPL
-recursive-include docs *.rst
-exclude .gitattributes
+include buildout.cfg
+include travis.cfg
+recursive-include src *.py
+recursive-include src *.robot
+recursive-include src *.txt
+recursive-include src *.xml
+recursive-include src *.zcml
