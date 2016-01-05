@@ -5,3 +5,4 @@ include *.py
 include .coveragerc
 recursive-include docs *.GPL
 recursive-include docs *.rst
+exclude .gitattributes
