@@ -5,7 +5,8 @@ Changelog
 0.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix permission check in related objects portlet.
+  [cekk]
 
 
 0.1.1 (2016-01-15)
