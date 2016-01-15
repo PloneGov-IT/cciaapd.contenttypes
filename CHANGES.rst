@@ -5,8 +5,8 @@ Changelog
 0.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Modificata traduzione (#111)
+  [neko]
 
 0.1.2 (2016-01-15)
 ------------------
