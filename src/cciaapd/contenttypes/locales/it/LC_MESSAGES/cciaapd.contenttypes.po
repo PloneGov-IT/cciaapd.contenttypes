@@ -112,4 +112,4 @@ msgstr "Orari"
 #. Default: "List of proceedings managed by this office"
 #: ../browser/templates/ufficio.pt:58
 msgid "proceedings_label"
-msgstr "Elenco dei procedimenti gestiti dall'ufficio"
+msgstr "Elenco attività gestite dall'ufficio"
