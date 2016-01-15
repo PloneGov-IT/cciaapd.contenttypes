@@ -22,18 +22,13 @@ class UfficioView(BrowserView):
 
         return sorted(result, key=lambda x: x.Title())
 
-
     def get_back_references_from_AT_type(self):
-        """ Returns back references for Archetypes items """
-
-        result = []
+        """ Returns not expired back references for Archetypes items """
         referenceable_item = referenceable.IReferenceable(self.context)
-        result.extend(referenceable_item.getBRefs())
-
-        return result
+        return [x for x in referenceable_item.getBRefs() if not x.isExpired()]
 
     def get_back_references_from_DX_type(self):
-        """ Returns back references for Dexterity items """
+        """ Returns not expired back references for Dexterity items """
 
         catalog = getUtility(ICatalog)
         intids = getUtility(IIntIds)
@@ -46,7 +41,7 @@ class UfficioView(BrowserView):
         result = []
         for rel in catalog.findRelations(query):
             obj = intids.queryObject(rel.from_id)
-            if obj is not None and checkPermission('zope2.View', obj):
+            if obj is not None and checkPermission('zope2.View', obj) and not obj.isExpired():
                 result.append(obj)
 
         return result
