@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1.2 (unreleased)
+0.1.2 (2016-01-15)
 ------------------
 
 - Fix permission check in related objects portlet.
