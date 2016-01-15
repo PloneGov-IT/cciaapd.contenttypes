@@ -6,21 +6,17 @@ class UfficioHelperView(BrowserView):
 
     def get_results(self):
         """
-        Returns related offices depending on the type of current item (AT or DX)
+        Returns related offices depending on the type of current item (AT or DX).
+        Omit expired offices
         """
-
         if IDexterityContent.providedBy(self.context):
-            related_office_list = [x.to_object for x in self.context.related_office]
+            return [x.to_object for x in self.context.related_office if not x.to_object.isExpired()]
         else:
             related_office_field = self.context.getField("related_office")
             if not related_office_field:
                 return []
-            related_office_list = related_office_field.get(self.context)
-
-        if len(related_office_list) == 0:
-            return[]
-
-        return related_office_list
+            return [x for x in related_office_field.get(self.context) if not x.isExpired()]
+        return []
 
     def __call__(self):
         """"""

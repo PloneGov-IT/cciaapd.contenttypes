@@ -9,7 +9,7 @@ class ArchivioView(BrowserView):
         """
         if item.portal_type == "Link":
             return "fa fa-link"
-        if item.portal_type == "ArchivioFolder":
+        if item.is_folderish:
             return "fa fa-folder"
         item_obj = item.getObject()
         contenttype = ""

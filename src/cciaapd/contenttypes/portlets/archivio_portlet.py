@@ -80,7 +80,7 @@ class Renderer(base.Renderer):
                     contentFilter={'portal_type': "ArchivioFolder"}
                 )
                 for archivio in elem_archivi:
-                    if archivio not in archivi:
+                    if archivio not in archivi and not archivio.isExpired():
                         archivi.append(archivio)
             except AttributeError:
                 continue
