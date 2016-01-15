@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1.1 (unreleased)
+0.1.1 (2016-01-15)
 ------------------
 
 - Fix object retrieving in portlets and related items.
