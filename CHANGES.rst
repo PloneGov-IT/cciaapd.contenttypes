@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1.3 (unreleased)
+0.1.3 (2016-01-18)
 ------------------
 
 - Fix get related items for AT in ufficio_helper_view
