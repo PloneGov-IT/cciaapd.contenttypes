@@ -5,7 +5,8 @@ Changelog
 0.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix get related items for AT in ufficio_helper_view
+  [cekk]
 
 
 0.1.2 (2016-01-15)
