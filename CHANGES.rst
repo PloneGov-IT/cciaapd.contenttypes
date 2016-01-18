@@ -8,6 +8,8 @@ Changelog
 - Fix get related items for AT in ufficio_helper_view
   [cekk]
 
+- Modificata traduzione (#111)
+  [neko]
 
 0.1.2 (2016-01-15)
 ------------------
