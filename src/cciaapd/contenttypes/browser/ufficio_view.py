@@ -25,7 +25,11 @@ class UfficioView(BrowserView):
     def get_back_references_from_AT_type(self):
         """ Returns not expired back references for Archetypes items """
         referenceable_item = referenceable.IReferenceable(self.context)
-        return [x for x in referenceable_item.getBRefs() if not x.isExpired()]
+        result = []
+        for rel in referenceable_item.getBRefs():
+            if checkPermission('zope2.View', rel) and not rel.isExpired():
+                result.append(rel)
+        return result
 
     def get_back_references_from_DX_type(self):
         """ Returns not expired back references for Dexterity items """
