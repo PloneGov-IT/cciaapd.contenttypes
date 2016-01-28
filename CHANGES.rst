@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1.5 (unreleased)
+0.1.5 (2016-01-28)
 ------------------
 
 - Fix translation [neko]
