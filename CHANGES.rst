@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1.6 (unreleased)
+0.1.6 (2016-02-29)
 ------------------
 
 - Fix portlet ufficio render [cekk]
