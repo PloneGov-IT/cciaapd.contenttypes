@@ -1,5 +1,6 @@
 from .. import _
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone import api
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
@@ -70,9 +71,8 @@ class Renderer(base.Renderer):
 
     @memoize
     def _data(self):
-
         context = self.context.aq_inner
-        if context.portal_type == 'Ufficio':
+        if context.portal_type == 'Ufficio' or context == api.portal.get():
             return []
 
         view = getMultiAdapter(
