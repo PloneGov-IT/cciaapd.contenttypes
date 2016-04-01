@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0 (unreleased)
+1.0.0 (2016-04-01)
 ------------------
 
 - Change ufficio_timetable field type and upgrade-step [cekk]

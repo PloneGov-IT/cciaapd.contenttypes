@@ -19,7 +19,7 @@ long_description = (
 
 setup(
     name='cciaapd.contenttypes',
-    version='0.1.7.dev0',
+    version='1.0.0',
     description="Content types for cciaapd",
     long_description=long_description,
     # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
