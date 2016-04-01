@@ -19,16 +19,13 @@
            tal:define="formatted_location python: view.format_text_field(result,'location')" tal:content="structure formatted_location">
             text here
         </div>
-
-        <div class="officeTime" tal:condition="result/office_timetable">
-          <h6>Orari</h6>
-          <ul>
-            <li tal:repeat="time result/office_timetable">
-              <span tal:replace="time" />
-            </li>
-          </ul>
-        </div>
-
+        <tal:timetable condition="result/office_timetable">
+          <div class="officeTime" tal:define="timetable result/office_timetable/output"
+             tal:condition="timetable">
+            <h6>Orari</h6>
+            <div class="timetableDetails" tal:content="structure timetable" />
+          </div>
+        </tal:timetable>
         <div class="officePhone" tal:condition="python:result.phone"
                                  tal:define="formatted_phone_numbers python: view.format_text_field(result,'phone')">
           <h6>Telefono</h6>

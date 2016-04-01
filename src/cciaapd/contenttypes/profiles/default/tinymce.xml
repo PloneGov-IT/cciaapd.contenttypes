@@ -8,6 +8,7 @@
    <element value="ArchivioFolder" />
    <element value="Scheda" />
    <element value="Ufficio" />
+   <element value="PrenotazioniFolder" />
   </linkable>
   <containsobjects purge="False">
    <element value="ModuliFolder"/>

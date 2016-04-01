@@ -98,11 +98,11 @@ class IUfficioSchema(model.Schema):
         default=u"",
         required=False
     )
-    office_timetable = schema.Tuple(
+    office_timetable = RichText(
         title=_("office_timetable_label", u"Timetable"),
-        description=_("office_timetable_description", u"One per line."),
-        default=(),
-        required=False,
-        value_type=TextLine(),
-        missing_value=(),
+        default_mime_type='text/html',
+        output_mime_type='text/html',
+        allowed_mime_types=('text/html', 'text/plain',),
+        default=u"",
+        required=False
     )

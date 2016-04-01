@@ -24,13 +24,9 @@
         				<h5 i18n:translate="office_location_label">Location</h5>
         				<div tal:replace="structure location"></div>
         			</div>
-        			<div class="officeTime" tal:condition="timetable">
+        			<div class="officeTime" tal:condition="timetable/output">
         				<h5 i18n:translate="office_timetable_label">Timetable</h5>
-        				<ul>
-                          <li tal:repeat="time timetable">
-                            <span tal:replace="time" />
-                          </li>
-                        </ul>
+        				<div class="timetableDetails" tal:content="structure timetable/output" />
         			</div>
         		</div>
 
