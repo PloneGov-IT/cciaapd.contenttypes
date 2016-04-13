@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+1.1.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix SearchableText indexer for Scheda
+  [cekk]
 
 
 1.0.0 (2016-04-01)

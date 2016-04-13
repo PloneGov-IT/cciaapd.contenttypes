@@ -36,4 +36,5 @@
     handler=".events.events_state.notify_state_change"
     />
 
+  <adapter name="SearchableText" factory=".indexers.SearchableText_scheda" />
 </configure>
