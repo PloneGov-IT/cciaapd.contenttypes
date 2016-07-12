@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.1 (unreleased)
+1.1.1 (2016-07-12)
 ------------------
 
 - Fix error handling in ufficio_support_view [cekk]
