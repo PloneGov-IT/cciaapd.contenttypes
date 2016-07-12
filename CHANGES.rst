@@ -5,7 +5,7 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix error handling in ufficio_support_view [cekk]
 
 
 1.1.0 (2016-04-13)

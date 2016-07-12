@@ -14,7 +14,11 @@ class UfficioHelperView(BrowserView):
         if IDexterityContent.providedBy(self.context):
             related_items = [x.to_object for x in self.context.related_office]
         else:
-            related_items_field = self.context.getField("related_office")
+            try:
+                related_items_field = self.context.getField("related_office")
+            except AttributeError:
+                # context isn't a site content
+                return []
             if related_items_field:
                 related_items = related_items_field.get(self.context)
         if not related_items:
