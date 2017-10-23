@@ -5,7 +5,8 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix timetables check in ufficio view [#197]
+  [cekk]
 
 
 1.1.1 (2016-07-12)

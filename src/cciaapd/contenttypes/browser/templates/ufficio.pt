@@ -24,7 +24,7 @@
         				<h5 i18n:translate="office_location_label">Location</h5>
         				<div tal:replace="structure location"></div>
         			</div>
-        			<div class="officeTime" tal:condition="timetable/output">
+        			<div class="officeTime" tal:condition="timetable">
         				<h5 i18n:translate="office_timetable_label">Timetable</h5>
         				<div class="timetableDetails" tal:content="structure timetable/output" />
         			</div>
