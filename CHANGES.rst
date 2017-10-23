@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.2 (unreleased)
+1.1.2 (2017-10-23)
 ------------------
 
 - Fix timetables check in ufficio view [#197]
