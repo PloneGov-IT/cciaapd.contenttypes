@@ -19,4 +19,12 @@
     handler=".upgrades.to_1100"
     profile="cciaapd.contenttypes:default"
   />
+  <gs:upgradeStep
+    title="Upgrade cciaapd.contenttypes to 1200"
+    description="cciaapd.contenttypes upgrade for updating the Scheda type"
+    source="1100"
+    destination="1200"
+    handler=".upgrades.to_1200"
+    profile="cciaapd.contenttypes:default"
+  />
 </configure>

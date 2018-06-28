@@ -45,3 +45,13 @@ def to_1100(context):
             office.office_timetable = RichTextValue(data.getData())
         logger.info("Updated item %s" % brain.getPath())
     logger.info("Profile updated.")
+
+
+def to_1200(context):
+    'Import types registry configuration'
+    logger.info('Importing types registry configuration for ' +
+                'cciapd.contenttypes')
+
+    setup_tool = api.portal.get_tool('portal_setup')
+    setup_tool.runImportStepFromProfile('profile-cciaapd.contenttypes:default',
+                                        'typeinfo', run_dependencies=False)
