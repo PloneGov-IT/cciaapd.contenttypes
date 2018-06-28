@@ -5,7 +5,7 @@ Changelog
 1.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added tile manager in scheda_view [nzambello]
 
 
 1.1.2 (2017-10-23)
