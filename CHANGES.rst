@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.0 (unreleased)
+1.2.0 (2018-10-15)
 ------------------
 
 - Move to github and publish on pypi
