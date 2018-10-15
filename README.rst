@@ -70,7 +70,7 @@ Credits
 Developed with the support of `Camera di Commercio di Padova`__;
 Camera di Commercio di Ferrara supports the `PloneGov initiative`__.
 
-.. image:: https://www.pd.camcom.it/cciaa-logo.png
+.. image:: https://www.pd.camcom.it/logo.png
    :alt: CCIAA Padova - logo
 
 __ https://www.pd.camcom.it
