@@ -3,28 +3,35 @@
    This text does not appear on pypi or github. It is a comment.
 
 ==============================================================================
-cciaapd.contenttypes
+CCIAAPD content-types
 ==============================================================================
 
-Tell me what your product does
+Adds two new content-types:
 
-Features
---------
+- Scheda
+- Ufficio
 
-- Can be bullet points
+These two types has additional fields that helps editors to expose specific informations
+in a structured way.
 
+Scheda type could also add some special folders into it, to better organize informations:
+
+- Archivio (archive)
+- Moduli (modules)
+- Riferimenti (references)
+ 
+There are also new portlets that can show these informations inside a Scheda.
 
 Examples
 --------
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+This add-on can be seen in action on `Camera di commercio di Padova` websiste:
 
+- `A list of Uffici`__
+- `A list of Schede`__
 
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+__ https://www.pd.camcom.it/camera-commercio/contatti-PEC
+__ https://www.pd.camcom.it/tutela-impresa-e-consumatore
 
 
 Translations
@@ -32,7 +39,7 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- Italian
 
 
 Installation
@@ -54,9 +61,8 @@ and then running "bin/buildout"
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/cciaapd.contenttypes/issues
-- Source Code: https://github.com/collective/cciaapd.contenttypes
-- Documentation: https://docs.plone.org/foo/bar
+- Issue Tracker: https://github.com/PloneGov-IT/cciaapd.contenttypes/issues
+- Source Code: https://github.com/PloneGov-IT/cciaapd.contenttypes/
 
 
 Support
