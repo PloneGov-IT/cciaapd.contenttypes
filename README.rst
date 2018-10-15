@@ -64,15 +64,23 @@ Contribute
 - Issue Tracker: https://github.com/PloneGov-IT/cciaapd.contenttypes/issues
 - Source Code: https://github.com/PloneGov-IT/cciaapd.contenttypes/
 
-
-Support
+Credits
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+Developed with the support of `Camera di Commercio di Padova`__;
+Camera di Commercio di Ferrara supports the `PloneGov initiative`__.
 
+.. image:: https://www.pd.camcom.it/cciaa-logo.png/
+   :alt: CCIAA Padova - logo
 
-License
+__ https://www.pd.camcom.it
+__ http://www.plonegov.it/
+
+Authors
 -------
 
-The project is licensed under the GPLv2.
+This product was developed by RedTurtle Technology team.
+
+.. image:: http://www.redturtle.it/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.it/
