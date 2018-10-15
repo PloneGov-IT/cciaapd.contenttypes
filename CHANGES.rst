@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.1.3 (unreleased)
+1.2.0 (unreleased)
 ------------------
 
-- Added tile manager in scheda_view [nzambello]
-
+- Move to github and publish on pypi
+  [cekk]
 
 1.1.2 (2017-10-23)
 ------------------

@@ -26,7 +26,7 @@ setup(
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 4.3.2",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
         "Operating System :: OS Independent",
@@ -35,7 +35,7 @@ setup(
     keywords='Python Plone',
     author='RedTurtle Technology',
     author_email='sviluppoplone@redturtle.it',
-    url='http://pypi.python.org/pypi/cciaapd.contenttypes',
+    url='https://github.com/PloneGov-IT/cciaapd.contenttypes',
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),
     namespace_packages=['cciaapd'],
