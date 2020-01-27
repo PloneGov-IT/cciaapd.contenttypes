@@ -6,15 +6,14 @@ from setuptools import setup
 
 
 long_description = (
-    open('README.rst').read()
-    + '\n' +
-    'Contributors\n'
+    open('README.rst').read() + '\n' + 'Contributors\n'
     '============\n'
-    + '\n' +
-    open('CONTRIBUTORS.rst').read()
-    + '\n' +
-    open('CHANGES.rst').read()
-    + '\n')
+    + '\n'
+    + open('CONTRIBUTORS.rst').read()
+    + '\n'
+    + open('CHANGES.rst').read()
+    + '\n'
+)
 
 
 setup(
@@ -46,12 +45,13 @@ setup(
         'plone.api',
         'setuptools',
         'z3c.jbot',
+        'pd.prenotazioni',
         'plone.app.dexterity',
         'plone.directives.dexterity',
         'plone.app.contenttypes',
         'plone.app.versioningbehavior',
         'plone.app.lockingbehavior',
-	    'plone.app.referenceablebehavior',
+        'plone.app.referenceablebehavior',
         'rer.bandi',
     ],
     extras_require={
@@ -59,7 +59,7 @@ setup(
             'plone.app.testing',
             'plone.app.contenttypes[atrefs]<1.2',
             'plone.app.robotframework[debug]',
-        ],
+        ]
     },
     entry_points="""
     [z3c.autoinclude.plugin]
