@@ -9,6 +9,7 @@ from Products.ATContentTypes.interface import IATContentType
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import (
     ReferenceBrowserWidget,
 )
+from Products.ATContentTypes import ATCTMessageFactory as atct_mf
 from Products.CMFCore.permissions import ModifyPortalContent
 from rg.prenotazioni.interfaces.prenotazionifolder import IPrenotazioniFolder
 from zope.component import adapts
@@ -68,7 +69,9 @@ class FolderPrenotazioniExtender(object):
                 allow_sorting=True,
                 show_indexes=False,
                 force_close_on_insert=True,
-                label=_(u'label_related_items', default=u'Related Items'),
+                label=atct_mf(
+                    u'label_related_items', default=u'Related Items'
+                ),
                 description='',
                 visible={'edit': 'visible', 'view': 'invisible'},
             ),
@@ -80,26 +83,3 @@ class FolderPrenotazioniExtender(object):
 
     def getFields(self):
         return self._fields
-
-
-relatedItemsField = ReferenceField(
-    'relatedItems',
-    relationship='relatesTo',
-    multiValued=True,
-    isMetadata=True,
-    languageIndependent=False,
-    index='KeywordIndex',
-    referencesSortable=True,
-    keepReferencesOnCopy=True,
-    write_permission=ModifyPortalContent,
-    widget=ReferenceBrowserWidget(
-        allow_search=True,
-        allow_browse=True,
-        allow_sorting=True,
-        show_indexes=False,
-        force_close_on_insert=True,
-        label=u'Elementi correlati',
-        description='',
-        visible={'edit': 'visible', 'view': 'invisible'},
-    ),
-)
