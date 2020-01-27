@@ -5,7 +5,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add relatedItems field for PrenotazioniFolder.
+  [cekk]
 
 
 1.2.0 (2018-10-15)

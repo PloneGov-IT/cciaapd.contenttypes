@@ -34,6 +34,13 @@ __ https://www.pd.camcom.it/camera-commercio/contatti-PEC
 __ https://www.pd.camcom.it/tutela-impresa-e-consumatore
 
 
+Fields extender
+---------------
+
+This product adds also a `Related items` additional field for `PrenotazioniFolder`
+contents via schemaextender.
+
+
 Translations
 ------------
 
