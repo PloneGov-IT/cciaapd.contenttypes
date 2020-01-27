@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.3.0 (2020-01-27)
 ------------------
 
 - Add relatedItems field for PrenotazioniFolder.
